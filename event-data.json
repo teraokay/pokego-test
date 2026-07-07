@@ -13,7 +13,7 @@
       "title": "Pokémon GO Fest 2026：グローバル",
       "date": "2026年7月11日(土) 〜 7月12日(日)",
       "status": "upcoming",
-      "description": "初登場 of 幻ポケモン「ゼラオラ」やメガミュウツーX・Yが降臨する、今年最大の2日間。",
+      "description": "初登場の幻ポケモン「ゼラオラ」やメガミュウツーX・Yが降臨する、今年最大の2日間。",
       "link": "go-fest-2026.html"
     },
     {
@@ -57,7 +57,7 @@
     { "id": "DIALGA_ORIGIN", "name": "ディアルガ(オリジン)", "defense": 215, "tier": "T5" },
     { "id": "PALKIA", "name": "パルキア", "defense": 215, "tier": "T5" },
     { "id": "PALKIA_ORIGIN", "name": "パルキア(オリジン)", "defense": 215, "tier": "T5" },
-    { "id": "GIRATINA_ALTERED", "name": "ギラティナ(アナザー)", defense: 225, "tier": "T5" },
+    { "id": "GIRATINA_ALTERED", "name": "ギラティナ(アナザー)", "defense": 225, "tier": "T5" },
     { "id": "GIRATINA_ORIGIN", "name": "ギラティナ(オリジン)", "defense": 187, "tier": "T5" },
     { "id": "HEATRAN", "name": "ヒードラン", "defense": 213, "tier": "T5" },
     { "id": "REGIGIGAS", "name": "レジギガス", "defense": 210, "tier": "T5" },
@@ -96,7 +96,7 @@
     { "id": "XURKITREE", "name": "デンジュモク", "defense": 141, "tier": "T5" },
     { "id": "CELESTEELA", "name": "テッカグヤ", "defense": 199, "tier": "T5" },
     { "id": "KARTANA", "name": "カミツルギ", "defense": 182, "tier": "T5" },
-    { "id": "GUZZLORD", "name": "アクジキング", defense: 99, tier: "T5" },
+    { "id": "GUZZLORD", "name": "アクジキング", "defense": 99, "tier": "T5" },
     { "id": "NECROZMA", "name": "ネクロズマ", "defense": 204, "tier": "T5" },
     { "id": "STAKATAKA", "name": "ツンデツンデ", "defense": 323, "tier": "T5" },
     { "id": "BLACEPHALON", "name": "ズガドーン", "defense": 147, "tier": "T5" },
