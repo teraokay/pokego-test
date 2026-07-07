@@ -18,7 +18,7 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '20'
+        node-version: '24' # 警告対策：最新のNode.js 24へ引き上げ
 
     - name: Run Fetch and Update Script
       run: |
@@ -27,12 +27,20 @@ jobs:
         
         async function run() {
           try {
+            // 1. クラウドからデータ取得
+            console.log("Fetching latest data from PvPoke...");
             const response = await fetch("https://raw.githubusercontent.com/pvpoke/pvpoke/master/src/data/gamemaster/pokemon.json");
-            if (!response.ok) throw new Error("Fetch failed");
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             const rawData = await response.json();
             
+            // 2. ローカルのJSON読み込み（ファイル名や階層違いで落ちるケースの対策）
+            console.log("Reading local event-data.json...");
+            if (!fs.existsSync("event-data.json")) {
+              throw new Error("event-data.json がリポジトリのルート（一番上の階層）に見つかりません！ファイル名や配置場所を確認してください。");
+            }
             const localData = JSON.parse(fs.readFileSync("event-data.json", "utf8"));
             
+            // 3. 防御実数値のマージ
             let updatedCount = 0;
             localData.raidBosses = localData.raidBosses.map(boss => {
               const cloudPoke = rawData.find(p => p.id.toUpperCase() === boss.id || p.id.toUpperCase() === boss.id.replace("_NORMAL", ""));
@@ -46,7 +54,8 @@ jobs:
             fs.writeFileSync("event-data.json", JSON.stringify(localData, null, 2), "utf8");
             console.log(`Successfully synced ${updatedCount} bosses with latest stats.`);
           } catch (err) {
-            console.error("Sync Error:", err);
+            console.error("❌ [CRITICAL ERROR] JOB内のプログラム実行に失敗しました:");
+            console.error(err.message);
             process.exit(1);
           }
         }
