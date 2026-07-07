@@ -22,6 +22,7 @@
         .date-container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; background: #fff3e0; padding: 0.6rem 1rem; border-radius: 4px; font-weight: bold; margin-bottom: 1.5rem; border-left: 4px solid #e65100; }
         .date-text { font-size: 0.85rem; color: #333; }
         .btn-calendar { display: inline-block; background: #2e7d32; color: white; text-decoration: none; font-size: 0.75rem; padding: 0.3rem 0.6rem; border-radius: 4px; font-weight: bold; }
+        .btn-calendar:hover { background: #1b5e20; }
         
         h3.sub { font-size: 1.2rem; border-left: 5px solid var(--primary-color); padding-left: 0.6rem; color: #111; margin-top: 2rem; border-bottom: 1px solid #e1e4e8; padding-bottom: 0.4rem; }
         
@@ -51,14 +52,14 @@
             
             <div class="date-container">
                 <span class="date-text">📅 2026年7月11日(土)・12日(日) 各日 10:00 〜 19:00</span>
-                <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Pokémon+GO+Fest+2026：グローバル&dates=20260711T010000Z/20260712T100000Z&details=10周年記念！無料フルアクセス。土曜はメガミュウツーX、日曜はメガミュウツーYが限定出現！詳細確認：https://pokemongo.com/en/gofest/global" target="_blank" rel="noopener noreferrer" class="btn-calendar">📅 Googleカレンダーに登録</a>
+                <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Pokémon+GO+Fest+2026：グローバル&dates=20260711T010000Z/20260712T100000Z&details=10周年記念！無料フルアクセス。土曜はメガミュウツーX、日曜はメガミュウツーYが限定出現！詳細確認：https://pokemongo.com/ja/gofest/global" target="_blank" rel="noopener noreferrer" class="btn-calendar">📅 Googleカレンダーに登録</a>
             </div>
 
             <p style="font-size: 0.95rem;">世界中のトレーナーが一斉に熱狂する「Pokémon GO Fest 2026：グローバル」！節目の10周年を祝して、今年は<b>ゲームプレイ時間が各日9時間（計18時間）に拡大</b>。さらに史上初、ログインした全トレーナーが「スペシャルリサーチ」「限定ボーナス」「色違い確率アップ」に<b>完全無料</b>でフルアクセスできる異例の豪華仕様です！</p>
 
-            <!-- 修正②：メガミュウツーの出現日を明記 -->
+            <!-- スーパーメガレイドセクション -->
             <h3 class="sub">💥 スーパーメガレイド出現スケジュール（曜日限定仕様）</h3>
-            <p style="font-size: 0.95rem;">「ミュウツー」のメガシンカ形態が最高難易度の「スーパーメガレイド」に降臨！<strong>出現する曜日が完全に切り分けられています</strong>ので、周回・少人数討伐計画には細心の注意を払ってください。</p>
+            <p style="font-size: 0.95rem;">「ミュウツー」のメガシンカ形態が最高難易度の「スーパーメガレイド」に降臨！出現する曜日が完全に切り分けられていますので、周回・少人数討伐計画には細心の注意を払ってください。</p>
             
             <div class="danger-box">
                 ⚠️ <strong>【重要】ミュウツーの曜日限定スケジュール：</strong><br>
@@ -88,9 +89,9 @@
                 <a href="simulator.html" class="btn-tool">少人数討伐シミュレーターへ</a>
             </div>
 
-            <!-- 修正①：日曜日の生息地タイプを完全補完、修正③：メガレイドの時間変化スケジュールを統合 -->
+            <!-- 完全修正された生息地＆メガレイド表 -->
             <h3 class="sub">🗺️ 野生出現生息地 ＆ メガレイド完全タイムスケジュール</h3>
-            <p style="font-size: 0.95rem;">野生の生息地テーマ（出会いやすくなるポケモンのタイプ）と、ジムに出現するメガレイドボスは、<strong>3時間ごとに連動して完全に変化します。</strong></p>
+            <p style="font-size: 0.95rem;">野生の生息地テーマ（出会いやすくなるポケモンのタイプ）と、ジムに出現するメガレイドボスは、3時間ごとに連動して完全に変化します。</p>
             
             <table class="schedule-table">
                 <thead>
@@ -124,7 +125,6 @@
                         <td>
                             <strong>🌲 まぶしい緑</strong><br>
                             【対象タイプ】どく / むし / くさ<br>
-                            // クロード指摘による時間変化枠<br>
                             【出現メガ】メガガブリアス
                         </td>
                     </tr>
@@ -138,7 +138,6 @@
                         <td>
                             <strong>⚔️ たそがれのバトル場</strong><br>
                             【対象タイプ】あく / フェアリー / かくとう<br>
-                            // クロード指摘による時間変化枠<br>
                             【出現メガ】メガタブンネ
                         </td>
                     </tr>
@@ -160,7 +159,7 @@
             <div class="pokemon-img-grid">
                 <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png">インスティンクト帽ピカチュウ</div>
                 <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png">ミスティック帽ピカチュウ</div>
-                <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png">ヴァーラー帽ピカチュウ</div>
+                <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png">バァーラー帽ピカチュウ</div>
                 <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/201.png">全種類のアンノーン(おこう)</div>
                 <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/357.png">トロピウス(おこう)</div>
                 <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/626.png">バッフロン(おこう)</div>
