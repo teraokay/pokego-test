@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2026年7月 コミュニティ・デイ詳細 | ポケGO エキスパートツールズ</title>
+    <title>GO Fest カウントダウン「大いなる軌跡」攻略 | ポケGO エキスパートツールズ</title>
     <style>
         :root { --primary-color: #2a75d3; --bg-color: #f4f6f9; --card-bg: #ffffff; --text-color: #333333; }
         body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background-color: var(--bg-color); color: var(--text-color); margin: 0; padding: 0; line-height: 1.6; }
@@ -12,10 +12,16 @@
         main { max-width: 800px; margin: 1rem auto 3rem auto; padding: 0 1rem; }
         .detail-box { background: var(--card-bg); border-radius: 8px; border: 1px solid #e1e4e8; padding: 1.8rem; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
         h1 { font-size: 1.5rem; margin: 0 0 0.5rem 0; color: #111; }
-        .date-box { font-size: 0.85rem; color: #666; background: #f3e5f5; padding: 0.6rem; border-radius: 4px; font-weight: bold; margin-bottom: 1.5rem; border-left: 4px solid #7b1fa2; }
+        .date-container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; background: #e8f5e9; padding: 0.6rem 1rem; border-radius: 4px; font-weight: bold; margin-bottom: 1.5rem; border-left: 4px solid #2e7d32; }
+        .date-text { font-size: 0.85rem; color: #666; }
+        .btn-calendar { display: inline-block; background: #2e7d32; color: white; text-decoration: none; font-size: 0.75rem; padding: 0.3rem 0.6rem; border-radius: 4px; font-weight: bold; }
         h3.sub { font-size: 1.1rem; border-left: 4px solid var(--primary-color); padding-left: 0.5rem; color: #222; margin-top: 1.8rem; }
-        .pokemon-img-box { text-align: center; margin: 1.5rem 0; background: #f8f9fa; padding: 1rem; border-radius: 6px; border: 1px solid #e1e4e8; }
-        .pokemon-img-box img { max-width: 100px; height: auto; }
+        .pokemon-img-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 0.8rem; margin: 1rem 0; }
+        .pokemon-card { background: #f8f9fa; border: 1px solid #e1e4e8; border-radius: 6px; padding: 0.5rem; text-align: center; font-size: 0.8rem; font-weight: bold; }
+        .pokemon-card img { max-width: 60px; height: auto; display: block; margin: 0 auto 0.4rem auto; }
+        .raid-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-top: 0.8rem; }
+        .raid-table th, .raid-table td { border: 1px solid #e1e4e8; padding: 0.6rem; text-align: left; }
+        .raid-table th { background: #f4f6f9; }
         .official-link-box { margin-top: 2rem; background: #fff8e1; border: 1px solid #ffe082; padding: 1rem; border-radius: 6px; font-size: 0.95rem; }
         .official-link-box a { color: #e65100; font-weight: bold; text-decoration: underline; }
     </style>
@@ -24,32 +30,45 @@
     <div class="nav-bar"><a href="event.html">&larr; イベント一覧に戻る</a><a href="index.html">トップへ</a></div>
     <main>
         <div class="detail-box">
-            <h1>2026年7月 コミュニティ・デイ</h1>
-            <div class="date-box">📅 2026年7月19日(日) 14:00 〜 17:00</div>
-
-            <p>7月のコミュニティ・デイ対象は、事前のユーザー投票および公式予告を元に、待望の「ココドラ」に決定しました！最終進化形のボスゴドラがPvP・レイド環境を激変させる限定技を習得します。</p>
-
-            <div class="pokemon-img-box">
-                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/304.png" alt="ココドラ">
-                <div style="font-weight: bold; margin-top: 0.5rem;">大量発生：ココドラ（色違い確率大幅アップ）</div>
+            <h1>GO Fest 2026 カウントダウン「大いなる軌跡」</h1>
+            
+            <div class="date-container">
+                <span class="date-text">📅 2026年7月6日(月) 00:01 〜 7月10日(金) 23:59</span>
+                <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=GO+Fest+2026+カウントダウン「大いなる軌跡」&dates=20260706T000100/20260710T235900&details=毎日18:00〜20:00の日替わり豪華Wレイドアワー！金曜のゲンシカイキ・オリジンフォルムは大注目。詳細確認：https://pokemongo.com/en/news/great-trails-countdown-2026" target="_blank" rel="noopener noreferrer" class="btn-calendar">📅 Googleカレンダーに登録</a>
             </div>
 
-            <h3 class="sub">⚔️ 限定特別なわざ：メテオドライブ</h3>
-            <p style="font-size: 0.95rem;">イベント当日14:00〜22:00までの間に「ココドラ」を「コドラ」➔「ボスゴドラ」へと進化させることで、はがねタイプの強力な特別なわざ<b>「メテオドライブ」</b>を習得します。</p>
+            <p>GO Fest本番へ向けた超豪華な前夜祭イベント。期間中、毎日18:00〜20:00の2時間、日替わりで過去最高峰の限定レイドボス達が復刻出現します。</p>
 
-            <h3 class="sub">🎯 本家準拠：当日の発生トリプルボーナス</h3>
+            <h3 class="sub">⚔️ Wレイドアワーの日替わり主役ボス一覧</h3>
+            <div class="pokemon-img-grid">
+                <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/646_f2.png" alt="ホワイトキュレム">Wキュレム<br><span style="color:#666; font-size:0.7rem;">(7/7伝説)</span></div>
+                <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/646_f3.png" alt="ブラックキュレム">Bキュレム<br><span style="color:#666; font-size:0.7rem;">(7/8伝説)</span></div>
+                <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/483_f2.png" alt="ディアルガO">オリジンディアルガ<br><span style="color:#e65100; font-size:0.7rem;">(7/10大注目)</span></div>
+                <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/382_f2.png" alt="カイオーガ">ゲンシカイオーガ<br><span style="color:#e65100; font-size:0.7rem;">(7/10大注目)</span></div>
+            </div>
+
+            <table class="raid-table">
+                <thead>
+                    <tr><th>日程</th><th>18:00〜19:00（5つ星伝説）</th><th>19:00〜20:00（メガ/ゲンシ）</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>7/7(火)</td><td>ホワイトキュレム</td><td>メガバンギラス</td></tr>
+                    <tr><td>7/8(水)</td><td>ブラックキュレム</td><td>メガサーナイト</td></tr>
+                    <tr><td>7/9(木)</td><td>ザシアン / ザマゼンタ</td><td>メガゲンガー</td></tr>
+                    <tr><td>7/10(金)</td><td>オリジンディアルガ / オリジンパルキア</td><td>ゲンシカイオーガ / ゲンシグラードン</td></tr>
+                </tbody>
+            </table>
+
+            <h3 class="sub">🎯 本家準拠：限定フィールドリサーチ＆ボーナス</h3>
             <ul>
-                <li><strong>ポケモン捕獲時の「アメ」が3倍</strong></li>
-                <li><strong>トレーナーレベル31以上のプレイヤー：捕獲時に「アメXL」がドロップする確率が2倍</strong></li>
-                <li>ポケモン捕獲時の「孵化（ふか）の距離」が1/4に短縮（イベント中に卵を装置に入れた場合のみ）</li>
-                <li>「ルアーモジュール」および「おこう」の効果が3時間に延長</li>
-                <li>イベント開催中に「GOスナップショット」を撮影すると、ココドラが5回まで写り込み出現</li>
-                <li>当日14:00〜22:00まで、特別な交換が1日最大3回まで可能、かつ交換に必要な「ほしのすな」が半分</li>
+                <li><strong>レイドバトル勝利時のXP（経験値）が2倍</strong></li>
+                <li><strong>ポケストップからイベント限定タスク出現：</strong> 「レイドバトルに1回勝つ」報酬として、フカマル・モノズなどのレア竜タイプや、各種メガエナジーが50個手に入ります。</li>
+                <li><strong>コレクションチャレンジ：</strong> 期間中に日替わりボスを捕獲することで、わざマシンマシーンやふしぎなアメXLが獲得可能です。</li>
             </ul>
 
             <div class="official-link-box">
-                ℹ️ 有料スペシャルリサーチ（140円チケット）のタスク内容や、ショップ限定ボックスの構成については、公式サイトの個別詳細ページをご確認ください。<br style="margin-bottom: 0.5rem;">
-                <a href="https://pokemongolive.com/post/communityday-july-2026" target="_blank" rel="noopener noreferrer">&rarr; 公式サイトで「7月コミュニティ・デイ」の詳細を確認する</a>
+                ℹ️ 各日のレイドアワー仕様や野生出現ポケモンの詳細ラインナップは、公式サイトの個別ニュースをご確認ください。<br style="margin-bottom: 0.5rem;">
+                <a href="https://pokemongo.com/en/news/great-trails-countdown-2026" target="_blank" rel="noopener noreferrer">&rarr; 公式サイトで「大いなる軌跡」の詳細を確認する</a>
             </div>
         </div>
     </main>
