@@ -27,8 +27,8 @@
         .pogo-simulator-wrapper { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--pogo-card-bg); color: var(--text-main); padding: 20px 16px; border-radius: 18px; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3); box-sizing: border-box; margin-bottom: 12px; border: 2px solid rgba(255, 255, 255, 0.2); width: 100%; }
         .pogo-simulator-wrapper * { box-sizing: border-box; margin: 0; padding: 0; }
         .pogo-simulator-wrapper h2 { font-size: 1.2rem; text-align: center; margin-bottom: 6px; font-weight: 800; letter-spacing: 0.03em; color: #0f172a; }
-        .pogo-status-badge { text-align: center; font-size: 0.75rem; color: var(--text-sub); margin-bottom: 16px; display: flex; align-items: center; justify-content: center; gap: 6px; font-weight: 600; }
-        .status-dot { width: 8px; height: 8px; border-radius: 50%; background-color: var(--color-hard); box-shadow: 0 0 8px var(--color-hard); }
+        .pogo-status-badge { text-align: center; font-size: 0.75rem; color: var(--text-sub); margin-bottom: 16px; display: flex; align-items: center; justify-content: center; gap: 6px; font-weight: 600; line-height: 1.4; }
+        .status-dot { width: 8px; height: 8px; border-radius: 50%; background-color: var(--color-hard); box-shadow: 0 0 8px var(--color-hard); flex-shrink: 0; }
         .status-dot.online { background-color: #10b981; box-shadow: 0 0 8px #10b981; }
         .pogo-form-group { margin-bottom: 14px; width: 100%; }
         .pogo-form-group label.group-title { display: block; font-size: 0.8rem; font-weight: 700; margin-bottom: 6px; color: #1e293b; }
@@ -134,20 +134,48 @@
 let allBossList = [];
 let dynamicPokemonData = {};
 
+// 予期せぬエラーで画面が完全に沈黙するのを防ぐためのフォールバック(予備)データ
+const fallbackBosses = [
+    { "id": "MEWTWO", "name": "ミュウツー", "defense": 182, "tier": "T5" },
+    { "id": "KYOGRE", "name": "カイオーガ", "defense": 228, "tier": "T5" },
+    { "id": "GROUDON", "name": "グラードン", "defense": 228, "tier": "T5" },
+    { "id": "RAYQUAZA", "name": "レックウザ", "defense": 170, "tier": "T5" },
+    { "id": "PRIMAL_KYOGRE", "name": "ゲンシカイオーガ", "defense": 257, "tier": "SUPER_MEGA" },
+    { "id": "PRIMAL_GROUDON", "name": "ゲンシグラードン", "defense": 257, "tier": "SUPER_MEGA" },
+    { "id": "MEGA_RAYQUAZA", "name": "メガレックウザ", "defense": 206, "tier": "SUPER_MEGA" }
+];
+
 async function fetchLatestData() {
     const statusDot = document.getElementById('statusDot');
     const statusText = document.getElementById('statusText');
 
+    // ステップ1: 独自JSON (event-data.json) の読み込み
     try {
         const dbResponse = await fetch('event-data.json');
-        if (!dbResponse.ok) throw new Error('Local DB Load Failed');
-        const dbData = await dbResponse.json();
+        if (!dbResponse.ok) throw new Error(`event-data.jsonが見つかりません (Status: ${dbResponse.status})`);
         
-        allBossList = dbData.raidBosses;
-        allBossList.forEach(poke => {
-            dynamicPokemonData[poke.id] = { defense: poke.defense, tier: poke.tier || "T5" };
-        });
+        const dbData = await dbResponse.json();
+        if (dbData && dbData.raidBosses) {
+            allBossList = dbData.raidBosses;
+        } else {
+            throw new Error("JSON内に raidBosses データが見つかりません");
+        }
+        statusText.innerText = 'ローカル独自DB読込完了';
+    } catch (error) {
+        console.error("Local DB Load Error:", error);
+        // エラー時は予備データを流し込んで強制起動
+        allBossList = [...fallbackBosses];
+        statusDot.style.backgroundColor = '#dc2626'; // 赤ドット
+        statusText.innerHTML = `<span style="color:#dc2626;">ローカルJSON読込失敗: ${error.message} (予備モードで起動中)</span>`;
+    }
 
+    // マップにデータを初期展開
+    allBossList.forEach(poke => {
+        dynamicPokemonData[poke.id] = { defense: poke.defense, tier: poke.tier || "T5" };
+    });
+
+    // ステップ2: クラウド (PvPokeマスター) からの最新防御実数値の上書きマージ
+    try {
         const response = await fetch('https://raw.githubusercontent.com/pvpoke/pvpoke/master/src/data/gamemaster/pokemon.json');
         if (response.ok) {
             const data = await response.json();
@@ -162,23 +190,23 @@ async function fetchLatestData() {
                 }
             });
             statusDot.classList.add('online');
-            statusText.innerText = '全ボスデータ: 独自DB ＆ クラウド同期完了';
-        } else {
-            statusText.innerText = '全ボスデータ: 独自DB駆動モード';
+            if (!statusText.innerHTML.includes('失敗')) {
+                statusText.innerText = '全ボスデータ: 独自DB ＆ クラウド同期完了';
+            }
         }
-        
-        renderBossOptions(allBossList);
-    } catch (error) {
-        console.error(error);
-        statusText.innerText = 'データロードエラー: JSONファイルを確認してください';
+    } catch (cloudError) {
+        console.error("Cloud Sync Error:", cloudError);
     }
+    
+    // 最終的にセレクトボックスを確実に描画
+    renderBossOptions(allBossList);
 }
 
 function renderBossOptions(list) {
     const bossSelect = document.getElementById('bossSelect');
     bossSelect.innerHTML = '';
     
-    if (list.length === 0) {
+    if (!list || list.length === 0) {
         const option = document.createElement('option');
         option.textContent = '該当ボス不在';
         bossSelect.appendChild(option);
@@ -234,13 +262,12 @@ function calculateRaid() {
     const timeLimit = 300; 
     const baseDps = (6200 / (bossDef || 200)) * 0.65; 
 
-    // 各トレーナーレベル（TL）に紐づく、実効戦闘力の補正ロジック
     let tlModifier = 1.0;
-    if (tlValue === "30") tlModifier = 0.75;  // TL30代（PL30〜35ライト育成相当）
-    if (tlValue === "40") tlModifier = 1.00;  // TL40代（PL40フル強化基本相当）
-    if (tlValue === "50") tlModifier = 1.18;  // TL50代（PL50マックス強化相当）
-    if (tlValue === "60") tlModifier = 1.22;  // TL60代（PL50シャドウ混成相当）
-    if (tlValue === "80") tlModifier = 1.25;  // TL70〜80（PL50最適化一挙・極限理想パーティ相当）
+    if (tlValue === "30") tlModifier = 0.75;  
+    if (tlValue === "40") tlModifier = 1.00;  
+    if (tlValue === "50") tlModifier = 1.18;  
+    if (tlValue === "60") tlModifier = 1.22;  
+    if (tlValue === "80") tlModifier = 1.25;  
 
     let dps = baseDps * tlModifier;
     if (weatherBoost) dps = dps * 1.20;
