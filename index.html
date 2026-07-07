@@ -3,302 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ポケGO エキスパートツールズ | 少人数レイド・プレイ効率化攻略支援</title>
+    <title>ポケGO エキスパートツールズ | トップ</title>
     <style>
-        :root {
-            --primary-color: #2a75d3;
-            --accent-color: #ffcb05;
-            --bg-color: #f4f6f9;
-            --card-bg: #ffffff;
-            --text-color: #333333;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            text-align: center;
-            padding: 2.5rem 1rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 1.8rem;
-            letter-spacing: 0.05em;
-        }
-
-        header p {
-            margin: 0.5rem 0 0 0;
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        main {
-            max-width: 800px;
-            margin: 1.5rem auto;
-            padding: 0 1rem;
-        }
-
-        /* 広告枠共通スタイル */
-        .ad-container {
-            background: #eef1f6;
-            border: 1px dashed #b0bec5;
-            text-align: center;
-            padding: 1rem;
-            margin: 1.5rem 0;
-            font-size: 0.8rem;
-            color: #78909c;
-            border-radius: 6px;
-        }
-        .ad-label {
-            display: block;
-            font-size: 0.7rem;
-            margin-bottom: 0.5rem;
-            letter-spacing: 0.1em;
-        }
-
-        .section-title {
-            font-size: 1.3rem;
-            border-left: 5px solid var(--primary-color);
-            padding-left: 0.6rem;
-            margin-bottom: 1.2rem;
-            margin-top: 2.5rem;
-            color: #222;
-        }
-
-        /* イベントカードスタイル */
-        .event-card {
-            background: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 8px;
-            border: 1px solid #e1e4e8;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            margin-bottom: 1.5rem;
-        }
-        .event-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.5rem;
-        }
-        .event-status {
-            background: #e65100;
-            color: white;
-            font-size: 0.75rem;
-            font-weight: bold;
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-        }
-        .event-rating {
-            color: #ffb300;
-            font-weight: bold;
-            font-size: 0.9rem;
-        }
-        .event-title {
-            margin: 0 0 0.5rem 0;
-            color: #333;
-            font-size: 1.4rem;
-        }
-        .event-time {
-            margin: 0 0 1rem 0;
-            font-size: 0.85rem;
-            color: #666;
-        }
-        .event-todo-title {
-            font-size: 1rem;
-            margin: 0 0 0.5rem 0;
-            color: var(--primary-color);
-            font-weight: bold;
-        }
-        .event-todo-list {
-            margin: 0;
-            padding-left: 1.2rem;
-            font-size: 0.9rem;
-            color: #444;
-        }
-        .event-todo-list li {
-            margin-bottom: 0.4rem;
-        }
-        .event-link-box {
-            margin-top: 1.5rem;
-            background: #f4f6f9;
-            padding: 1rem;
-            border-radius: 6px;
-            border: 1px solid #eef1f4;
-        }
-        .event-link-title {
-            margin: 0 0 0.5rem 0;
-            font-size: 0.9rem;
-            color: #333;
-            font-weight: bold;
-        }
-        .btn-simulator {
-            display: inline-block;
-            background: var(--primary-color);
-            color: white;
-            text-align: center;
-            padding: 0.6rem 1.2rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: bold;
-            transition: background 0.2s;
-        }
-        .btn-simulator:hover {
-            background: #1e5bb3;
-        }
-
-        /* ツールグリッドスタイル */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-        .card {
-            background: var(--card-bg);
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            padding: 1.5rem;
-            transition: transform 0.2s, box-shadow 0.2s;
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            flex-direction: column;
-            border: 1px solid #e1e4e8;
-        }
-        .card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            border-color: var(--primary-color);
-        }
-        .card h3 {
-            margin: 0 0 0.5rem 0;
-            color: var(--primary-color);
-            font-size: 1.2rem;
-        }
-        .card p {
-            margin: 0;
-            font-size: 0.9rem;
-            color: #666;
-            flex-grow: 1;
-            line-height: 1.5;
-        }
-        .badge {
-            display: inline-block;
-            background-color: #e3f2fd;
-            color: var(--primary-color);
-            font-size: 0.75rem;
-            font-weight: bold;
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            margin-top: 1.2rem;
-            align-self: flex-start;
-        }
-        .badge.preparing {
-            background-color: #eaeaea;
-            color: #777;
-        }
-
-        footer {
-            text-align: center;
-            padding: 2.5rem 1rem;
-            font-size: 0.8rem;
-            color: #888;
-            margin-top: 50px;
-            border-top: 1px solid #e1e4e8;
-            background: #fff;
-        }
+        :root { --primary-color: #2a75d3; --bg-color: #f4f6f9; --card-bg: #ffffff; --text-color: #333333; }
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background-color: var(--bg-color); color: var(--text-color); margin: 0; padding: 0; line-height: 1.6; }
+        header { background-color: var(--primary-color); color: white; text-align: center; padding: 2rem 1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        header h1 { margin: 0; font-size: 1.8rem; }
+        header p { margin: 0.5rem 0 0 0; font-size: 0.9rem; opacity: 0.9; }
+        main { max-width: 800px; margin: 1.5rem auto; padding: 0 1rem; }
+        .section-title { font-size: 1.3rem; border-left: 5px solid var(--primary-color); padding-left: 0.6rem; margin: 2rem 0 1rem 0; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+        .card { background: var(--card-bg); border-radius: 8px; border: 1px solid #e1e4e8; padding: 1.5rem; text-decoration: none; color: inherit; display: flex; flex-direction: column; transition: transform 0.2s, border-color 0.2s; }
+        .card:hover { transform: translateY(-2px); border-color: var(--primary-color); box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .card h3 { margin: 0 0 0.5rem 0; color: var(--primary-color); font-size: 1.2rem; }
+        .card p { margin: 0; font-size: 0.9rem; color: #666; flex-grow: 1; }
+        .badge { display: inline-block; background-color: #e3f2fd; color: var(--primary-color); font-size: 0.75rem; font-weight: bold; padding: 0.25rem 0.5rem; border-radius: 4px; margin-top: 1rem; align-self: flex-start; }
+        .badge.event { background-color: #ffe0b2; color: #e65100; }
+        footer { text-align: center; padding: 2rem 1rem; font-size: 0.8rem; color: #888; margin-top: 4rem; border-top: 1px solid #e1e4e8; background: #fff; }
     </style>
 </head>
 <body>
-
     <header>
         <h1>ポケGO エキスパートツールズ</h1>
-        <p>レイド少人数討伐やプレイ効率化のための実用主義ツール・データ集</p>
+        <p>少人数レイドシミュレーター ＆ 効率化攻略情報</p>
     </header>
-
     <main>
-        <!-- 【広告枠①】ヘッダー直下（ファーストビュー広告エリア） -->
-        <div class="ad-container">
-            <span class="ad-label">SPONSORED LINK</span>
-            <div style="min-height: 90px; display: flex; align-items: center; justify-content: center;">
-                広告プレースホルダー（レスポンシブ広告ユニット）
-            </div>
-        </div>
-
-        <!-- 最新イベント情報セクション -->
-        <h2 class="section-title">最新イベント攻略情報</h2>
-        
-        <div class="event-card">
-            <div class="event-header">
-                <span class="event-status">次回予告 / 注目イベント</span>
-                <span class="event-rating">注目度: ★★★★☆</span>
-            </div>
-            <h3 class="event-title">直近の公式イベント情報</h3>
-            <p class="event-time">期間: 公式発表の開催スケジュールをここに記載</p>
-            
-            <div class="event-todo-title">🎯 このイベントの要点・やるべきこと</div>
-            <ul class="event-todo-list">
-                <li><strong>最優先ポケモンの捕獲:</strong> 優秀なアメXL対象ポケモンや野生出現の狙い目を絞って集中的に狙う</li>
-                <li><strong>限定技の確保:</strong> 期間中の進化で特別なわざを覚える指定ポケモンの厳選と進化</li>
-                <li><strong>発生ボーナスの最大化:</strong> ほしのすなやXPの倍率アップに合わせたアイテム（ほしのかけら等）の戦略的投入</li>
-            </ul>
-
-            <!-- シミュレーターへの直接連携導線 -->
-            <div class="event-link-box">
-                <div class="event-link-title">⚔️ 出現レイドボス対策を検証</div>
-                <p style="margin: 0 0 0.8rem 0; font-size: 0.85rem; color: #555;">イベント中に登場するレイドボスに少人数・ソロで勝てるか、自慢の対策パーティでシミュレートしてみましょう。</p>
-                <a href="simulator.html" class="btn-simulator">
-                    最少人数討伐シミュレーターを起動 &rarr;
-                </a>
-            </div>
-        </div>
-
-        <!-- 攻略支援ツールセクション -->
-        <h2 class="section-title">攻略支援ツール一覧</h2>
+        <h2 class="section-title">イベント情報</h2>
         <div class="grid">
-            <!-- 既存のシミュレーター -->
+            <a href="event.html" class="card">
+                <h3>開催中・予定のイベント一覧</h3>
+                <p>現在開催中のイベントや、直近で開催される公式イベントの要点・ToDoまとめページへ進みます。</p>
+                <span class="badge event">イベント情報へ</span>
+            </a>
+        </div>
+
+        <h2 class="section-title">攻略支援ツール</h2>
+        <div class="grid">
             <a href="simulator.html" class="card">
                 <h3>最少人数討伐シミュレーター</h3>
-                <p>ボスのステータスや技構成から、討伐に必要な最小人数やおすすめ対策ポケモンを精密に計算・シミュレートします。</p>
+                <p>ボスのステータスや技構成から、討伐に必要な最小人数やおすすめ対策ポケモンを精密に計算します。</p>
                 <span class="badge">公開中</span>
             </a>
-
-            <!-- 今後追加予定のツール（プレースホルダー） -->
-            <div class="card" style="opacity: 0.7; cursor: not-allowed;">
-                <h3>メガバフ最適化 逆引きツール</h3>
-                <p>現在出現中の野生・レイドボスに対して、アメやアメXLのドロップ率を最大化できる最適なメガシンカ枠を即座に判定します。</p>
-                <span class="badge preparing">準備中</span>
-            </div>
-
-            <div class="card" style="opacity: 0.7; cursor: not-allowed;">
-                <h3>アメXL・育成コスト計算機</h3>
-                <p>目標のPL（ポケモンレベル）までに必要な「ほしのすな」や「アメXL」の総量を算出し、必要捕獲数を逆算します。</p>
-                <span class="badge preparing">準備中</span>
-            </div>
-        </div>
-
-        <!-- 【広告枠②】コンテンツ下部広告エリア -->
-        <div class="ad-container" style="margin-top: 3rem;">
-            <span class="ad-label">SPONSORED LINK</span>
-            <div style="min-height: 250px; display: flex; align-items: center; justify-content: center;">
-                広告プレースホルダー（レクタングル/レスポンシブ広告）
-            </div>
         </div>
     </main>
-
-    <footer>
-        <p>&copy; ポケGO エキスパートツールズ All Rights Reserved.</p>
-    </footer>
-
+    <footer><p>&copy; ポケGO エキスパートツールズ</p></footer>
 </body>
 </html>
