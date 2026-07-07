@@ -3,31 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GO Fest 2026 カウントダウン「大いなる軌跡」徹底攻略 | ポケGO エキスパートツールズ</title>
+    <title>GO Fest 2026 カウントダウン「大いなる軌跡」完全攻略 | ポケGO エキスパートツールズ</title>
     <style>
-        :root { --primary-color: #2a75d3; --bg-color: #f4f6f9; --card-bg: #ffffff; --text-color: #333333; }
+        :root { 
+            --primary-color: #2a75d3; 
+            --bg-color: #f4f6f9; 
+            --card-bg: #ffffff; 
+            --text-color: #333333; 
+            --accent-color: #ffcb05;
+        }
         body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background-color: var(--bg-color); color: var(--text-color); margin: 0; padding: 0; line-height: 1.6; }
-        .nav-bar { max-width: 800px; margin: 1rem auto 0 auto; padding: 0 1rem; display: flex; justify-content: space-between; font-size: 0.9rem; }
+        .nav-bar { max-width: 900px; margin: 1rem auto 0 auto; padding: 0 1rem; display: flex; justify-content: space-between; font-size: 0.9rem; }
         .nav-bar a { text-decoration: none; color: var(--primary-color); font-weight: bold; }
-        main { max-width: 800px; margin: 1rem auto 3rem auto; padding: 0 1rem; }
+        main { max-width: 900px; margin: 1rem auto 3rem auto; padding: 0 1rem; }
         .detail-box { background: var(--card-bg); border-radius: 8px; border: 1px solid #e1e4e8; padding: 1.8rem; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-        h1 { font-size: 1.5rem; margin: 0 0 0.5rem 0; color: #111; }
+        
+        h1 { font-size: 1.6rem; margin: 0 0 0.5rem 0; color: #111; }
         .date-container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; background: #e8f5e9; padding: 0.6rem 1rem; border-radius: 4px; font-weight: bold; margin-bottom: 1.5rem; border-left: 4px solid #2e7d32; }
         .date-text { font-size: 0.85rem; color: #666; }
         .btn-calendar { display: inline-block; background: #2e7d32; color: white; text-decoration: none; font-size: 0.75rem; padding: 0.3rem 0.6rem; border-radius: 4px; font-weight: bold; }
-        .btn-calendar:hover { background: #1b5e20; }
-        h3.sub { font-size: 1.1rem; border-left: 4px solid var(--primary-color); padding-left: 0.5rem; color: #222; margin-top: 1.8rem; border-bottom: 1px solid #e1e4e8; padding-bottom: 0.3rem; }
         
-        .pokemon-img-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 0.8rem; margin: 1rem 0; }
-        .pokemon-card { background: #f8f9fa; border: 1px solid #e1e4e8; border-radius: 6px; padding: 0.5rem; text-align: center; font-size: 0.8rem; font-weight: bold; }
-        .pokemon-card img { max-width: 65px; height: auto; display: block; margin: 0 auto 0.4rem auto; }
+        h3.sub { font-size: 1.2rem; border-left: 5px solid var(--primary-color); padding-left: 0.6rem; color: #111; margin-top: 2rem; border-bottom: 1px solid #e1e4e8; padding-bottom: 0.4rem; }
         
-        .raid-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-top: 0.8rem; }
+        /* ポケモンミニグリッド */
+        .pokemon-img-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); gap: 0.6rem; margin: 1rem 0; }
+        .pokemon-card { background: #f8f9fa; border: 1px solid #e1e4e8; border-radius: 6px; padding: 0.4rem; text-align: center; font-size: 0.75rem; font-weight: bold; }
+        .pokemon-card img { max-width: 50px; height: auto; display: block; margin: 0 auto 0.3rem auto; }
+        
+        .raid-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 1rem 0; }
         .raid-table th, .raid-table td { border: 1px solid #e1e4e8; padding: 0.6rem; text-align: left; }
         .raid-table th { background: #f4f6f9; }
         
-        .official-link-box { margin-top: 2rem; background: #fff8e1; border: 1px solid #ffe082; padding: 1rem; border-radius: 6px; font-size: 0.95rem; }
+        /* アコーディオン（大量データ用） */
+        details { background: #f1f3f5; padding: 0.5rem 1rem; border-radius: 6px; margin: 0.5rem 0; border: 1px solid #e1e4e8; }
+        summary { font-weight: bold; cursor: pointer; font-size: 0.9rem; outline: none; }
+        
+        .highlight-box { background: #fff3e0; border-left: 4px solid #ff9800; padding: 1rem; border-radius: 4px; margin: 1rem 0; font-size: 0.9rem; }
+        .official-link-box { margin-top: 2.5rem; background: #fff8e1; border: 1px solid #ffe082; padding: 1.2rem; border-radius: 6px; font-size: 0.95rem; }
         .official-link-box a { color: #e65100; font-weight: bold; text-decoration: underline; }
+        
+        ul { padding-left: 1.2rem; font-size: 0.9rem; }
+        li { margin-bottom: 0.4rem; }
     </style>
 </head>
 <body>
@@ -37,41 +53,168 @@
             <h1>GO Fest 2026 カウントダウン「大いなる軌跡」</h1>
             
             <div class="date-container">
-                <span class="date-text">📅 期間: 2026年7月6日(月) 00:01 〜 7月10日(金) 23:59</span>
+                <span class="date-text">📅 日本時間：2026年7月6日(月) 00:01 〜 7月10日(金) 23:59</span>
                 <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=GO+Fest+2026+カウントダウン「大いなる軌跡」&dates=20260706T000100/20260710T235900&details=毎日18:00〜20:00の日替わり豪華Wレイドアワー！詳細確認：https://pokemongo.com/ja/news/road-of-legends-2026" target="_blank" rel="noopener noreferrer" class="btn-calendar">📅 Googleカレンダーに登録</a>
             </div>
 
-            <p>10周年のGO Festグローバル本番へ向けて突き進む、熱いカウントダウンイベント。期間中は毎日18:00〜20:00の2時間、最高峰の伝説＆メガボスが日替わりで復刻出現するレイドアワーが最大の見どころです。</p>
+            <p style="font-size: 0.95rem;">「Pokémon GO Fest 2026：グローバル」開催へのカウントダウンイベント！強力なポケモンとのレイドバトル、特別なイベントボーナス、新登場の「GOパス」リワードなど、週末のビッグイベントに向けてパーティを極限まで強化する絶好のチャンスです。</p>
 
-            <h3 class="sub">⚔️ Wレイドアワー日替わり主役ボス（画像一覧）</h3>
-            <div class="pokemon-img-grid">
-                <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/646_f2.png" alt="ホワイトキュレム">ホワイトキュレム<br><span style="color:#666; font-size:0.7rem;">(7/7 火曜伝説)</span></div>
-                <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/646_f3.png" alt="ブラックキュレム">ブラックキュレム<br><span style="color:#666; font-size:0.7rem;">(7/8 水曜伝説)</span></div>
-                <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/483_f2.png" alt="オリジンディアルガ">オリジンディアルガ<br><span style="color:#e65100; font-size:0.7rem;">(7/10 金曜大注目)</span></div>
-                <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/382_f2.png" alt="ゲンシカイオーガ">ゲンシカイオーガ<br><span style="color:#e65100; font-size:0.7rem;">(7/10 金曜大注目)</span></div>
-            </div>
-
+            <h3 class="sub">⚔️ レイドアワー＆出現レイドボス スケジュール</h3>
+            <p style="font-size: 0.85rem; color:#555;">※伝説レイドアワー：各日18:00〜19:00（月曜のみ18:00〜20:00）<br>※メガ/ゲンシレイドアワー：各日19:00〜20:00</p>
+            
             <table class="raid-table">
                 <thead>
-                    <tr><th>日程</th><th>18:00〜19:00（5つ星伝説）</th><th>19:00〜20:00（メガ/ゲンシ）</th></tr>
+                    <tr>
+                        <th>日付</th>
+                        <th>伝説レイドバトル（18:00〜19:00）</th>
+                        <th>メガ/ゲンシレイド（19:00〜20:00）</th>
+                    </tr>
                 </thead>
                 <tbody>
-                    <tr><td>7/7(火)</td><td>ホワイトキュレム</td><td>メガバンギラス</td></tr>
-                    <tr><td>7/8(水)</td><td>ブラックキュレム</td><td>メガサーナイト</td></tr>
-                    <tr><td>7/9(木)</td><td>ザシアン / ザマゼンタ</td><td>メガゲンガー</td></tr>
-                    <tr><td>7/10(金)</td><td>オリジンディアルガ / オリジンパルキア</td><td>ゲンシカイオーガ / ゲンシグラードン</td></tr>
+                    <tr>
+                        <td><strong>7月6日(月)</strong></td>
+                        <td>歴代の伝説・UBが大量一斉出現（※アワーは18〜20時）</td>
+                        <td>メガボーマンダ</td>
+                    </tr>
+                    <tr>
+                        <td><strong>7月7日(火)</strong></td>
+                        <td>ホワイトキュレム / ゼクロム / ネクロズマ(あかつき)</td>
+                        <td>メガバンギラス</td>
+                    </tr>
+                    <tr>
+                        <td><strong>7月8(水)</strong></td>
+                        <td>ブラックキュレム / レシラム / ネクロズマ(たそがれ)</td>
+                        <td>メガサーナイト</td>
+                    </tr>
+                    <tr>
+                        <td><strong>7月9日(木)</strong></td>
+                        <td>ザシアン(けんのおう) / ザマゼンタ(たてのおう)</td>
+                        <td>メガゲンガー</td>
+                    </tr>
+                    <tr>
+                        <td><strong>7月10日(金)</strong></td>
+                        <td>ディアルガ(オリジン) / パルキア(オリジン)</td>
+                        <td>ゲンシカイオーガ / ゲンシグラードン</td>
+                    </tr>
                 </tbody>
             </table>
 
-            <h3 class="sub">🎯 本家準拠：限定フィールドリサーチ＆ボーナス</h3>
+            <details>
+                <summary>🔍 7月6日(月)に出現する伝説・UBの全リスト（クリックで展開）</summary>
+                <p style="font-size:0.8rem; color:#666; margin:0.5rem 0;">※運が良ければ色違いに出会えます。一部地域制限あり。</p>
+                <div class="pokemon-img-grid">
+                    <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/144.png">フリーザー</div>
+                    <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/145.png">サンダー</div>
+                    <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/146.png">ファイヤー</div>
+                    <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/243.png">ライコウ</div>
+                    <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/244.png">エンテイ</div>
+                    <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/245.png">スイクン</div>
+                    <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/249.png">ルギア</div>
+                    <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/250.png">ホウオウ</div>
+                    <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/377.png">レジロック</div>
+                    <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/378.png">レジアイス</div>
+                    <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/379.png">レジスチル</div>
+                    <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/380.png">ラティアス</div>
+                    <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/381.png">ラティオス</div>
+                    <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/382.png">カイオーガ</div>
+                    <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/383.png">グラードン</div>
+                    <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/384.png">レックウザ</div>
+                    <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/386_f2.png">デオキシスA</div>
+                    <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/480.png">ユクシー</div>
+                    <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/483_f2.png">ディアルガO</div>
+                    <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/484_f2.png">パルキアO</div>
+                    <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/485.png">ヒードラン</div>
+                    <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/486.png">レジギガス</div>
+                    <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/487.png">ギラティナA</div>
+                    <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/488.png">クレセリア</div>
+                    <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/491.png">ダークライ</div>
+                    <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/643.png">レシラム</div>
+                    <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/644.png">ゼクロム</div>
+                    <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/646.png">キュレム</div>
+                    <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/793.png">ウツロイド</div>
+                    <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/796.png">デンジュモク</div>
+                    <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/798.png">カミツルギ</div>
+                    <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/800.png">ネクロズマ</div>
+                </div>
+            </details>
+
+            <h4 style="margin: 1rem 0 0.5rem 0; font-size:0.95rem; color:#2a75d3;">⭐ 7月7日〜10日の日替わり注目ボス画像</h4>
+            <div class="pokemon-img-grid">
+                <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/646_f2.png">Wキュレム<br><span style="color:#666; font-size:0.7rem;">7/7(火)</span></div>
+                <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/646_f3.png">Bキュレム<br><span style="color:#666; font-size:0.7rem;">7/8(水)</span></div>
+                <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/888_f2.png">ザシアン(剣)<br><span style="color:#666; font-size:0.7rem;">7/9(木)</span></div>
+                <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/483_f2.png">ディアルガO<br><span style="color:#666; font-size:0.7rem;">7/10(金)</span></div>
+            </div>
+
+            <h3 class="sub">✨ フィールド効果付きの限定スペシャルアタック</h3>
+            <p>イベント中に捕獲した一部のポケモンは、超強力な限定わざを習得しています。また、10周年記念として、期間中のみ初めて<b>「すごいわざマシン」</b>での習得が解禁されます！</p>
             <ul>
-                <li><strong>レイドバトル勝利時に獲得できる経験値（XP）が2倍</strong></li>
-                <li><strong>イベント限定フィールドリサーチ：</strong> 「レイドバトルに1回勝つ」報酬から、モノズ・フカマル等のレアドラゴン系統、または各ポケモンのメガエナジーがドロップ。</li>
-                <li><strong>コレクションチャレンジ：</strong> 期間中の対象レイドボスを捕獲することで、限定メダルや育成リソースアイテムが獲得可能。</li>
+                <li><strong>キュレム：</strong> 「こごえるせかい」</li>
+                <li><strong>パルキア（オリジンフォルム）：</strong> 「あくうせつだん」</li>
+                <li><strong>ディアルガ（オリジンフォルム）：</strong> 「ときのほうこう」</li>
             </ul>
 
+            <h3 class="sub">📸 新要素「スペシャル背景」＆スーパーメガレイド予告</h3>
+            <ul>
+                <li><strong>スペシャル背景：</strong> 7/6〜7/12の期間中、レイドで捕獲したポケモンには特別な場所の背景がつくことがあります。GO Fest本番のメガミュウツーに適用されると、メガシンカ時さらに追加エフェクトが発生！</li>
+                <li><strong>スーパーメガレイド予告：</strong> GO Fest本番では「メガミュウツーX」「メガミュウツーY」が登場。レイドで捕まえたミュウツーは、最初からメガレベル1が解放されており、高個体値になりやすい仕様です。</li>
+            </ul>
+
+            <h3 class="sub">🥚 イベント限定タマゴ孵化ラインナップ</h3>
+            <div class="highlight-box">
+                ⚠ <strong>7月6日(月) 00:00〜20:00限定：</strong> 5kmタマゴから、バイザーではなく「パーティーハット」をかぶったフシギダネ、ヒトカゲ、ゼニガメが孵化します！
+            </div>
+            <ul>
+                <li><strong>2kmタマゴ：</strong> ビードル、ポッポ、ケーシィ、ゴース、カイロス、プテラ、メリープ、ヨーギラス、キモリ、アチャモ、ミズゴロウ、ラルトス、タツベイ、ダンバル、フカマル、リオル、ユキカブリ、タブンネ、メラルバ</li>
+                <li><strong>5kmタマゴ：</strong> ピカチュウバイザー（御三家）、ヘラクロス、マネネ、メラルバ</li>
+                <li><strong>10kmタマゴ：</strong> トロピウス、キバゴ、バッフロン、メラルバ、ヌメラ、ジャラコ、エレズン、セビエ</li>
+            </ul>
+            <div class="pokemon-img-grid" style="justify-content: center;">
+                <div class="pokemon-card" style="border-color: #ff9800;"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/636.png">メラルバ<br><span style="color:#e65100; font-size:0.7rem;">全タマゴから超低確率</span></div>
+            </div>
+
+            <h3 class="sub">🎁 イベント限定ボーナス（7月6日〜7月12日）</h3>
+            <ul>
+                <li><strong>リモートレイドの参加回数制限が無制限（大注目）</strong></li>
+                <li>ジムのフォトディスクから、1日最大2個の無料レイドパスを獲得（※大いなる軌跡期間中のみ）</li>
+                <li>レイドゲットチャレンジ時の「プレミアボール」の捕獲効果がアップ</li>
+                <li>レイドバトル中に「チームパワー」が溜まる速度がアップ</li>
+                <li>ポケストップやギフトから、限定のイベントステッカーが登場</li>
+            </ul>
+
+            <h3 class="sub">🎫 「GOパス：大いなる軌跡」報酬一覧</h3>
+            <p>タスクを達成してランクを上げることで、様々な報酬が手に入ります。デラックス版にアップグレードするとさらに豪華なリワードが追加されます。</p>
+            <table class="raid-table">
+                <thead>
+                    <tr>
+                        <th>GOパス（無料版）の主な報酬</th>
+                        <th>GOパスデラックス（有料版）の追加報酬</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            ・チームキャップをかぶったピカチュウ<br>
+                            ・該当週ボスの「ポケモンのアメ」<br>
+                            ・着せ替え「GO Fest 2026 Tシャツ」<br>
+                            ・リンクチャージ / ふかそうち / おこう<br>
+                            ・タマゴ孵化に必要な距離が 1/2<br>
+                            ・ランク100：<b>「キラチャーム」</b>
+                        </td>
+                        <td>
+                            ・チームリーダー風 ポーズ<br>
+                            ・能力最大道具<b>「きんのおうかん」</b><br>
+                            ・ランク100：<b>スペシャル背景付きミュウツー</b><br>
+                            ・タマゴ孵化時の「砂」＆「アメ」が2倍<br>
+                            ・レイド完了時に追加で +5,000 XP<br>
+                            ・伝説レイドクリア時：アメ+3、アメXL+1個
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
             <div class="official-link-box">
-                ℹ️ 詳細な野生出現や限定タスクの全容は、以下の公式サイト個別ページをご確認ください。<br style="margin-bottom: 0.5rem;">
+                ℹ️ このページの情報は公式アップデート発表に基づいています。最新の法令や周囲の安全に注意してプレイしましょう。<br style="margin-bottom: 0.5rem;">
                 <a href="https://pokemongo.com/ja/news/road-of-legends-2026" target="_blank" rel="noopener noreferrer">&rarr; 公式サイトで詳細を確認する</a>
             </div>
         </div>
