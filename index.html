@@ -3,49 +3,328 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ポケGO エキスパートツールズ | トップ</title>
+    <title>ポケGO エキスパートツールズ | 少人数レイド・プレイ効率化攻略支援</title>
     <style>
-        :root { --primary-color: #2a75d3; --bg-color: #f4f6f9; --card-bg: #ffffff; --text-color: #333333; }
-        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background-color: var(--bg-color); color: var(--text-color); margin: 0; padding: 0; line-height: 1.6; }
-        header { background-color: var(--primary-color); color: white; text-align: center; padding: 2rem 1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        header h1 { margin: 0; font-size: 1.8rem; }
-        header p { margin: 0.5rem 0 0 0; font-size: 0.9rem; opacity: 0.9; }
-        main { max-width: 800px; margin: 1.5rem auto; padding: 0 1rem; }
-        .section-title { font-size: 1.3rem; border-left: 5px solid var(--primary-color); padding-left: 0.6rem; margin: 2rem 0 1rem 0; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-        .card { background: var(--card-bg); border-radius: 8px; border: 1px solid #e1e4e8; padding: 1.5rem; text-decoration: none; color: inherit; display: flex; flex-direction: column; transition: transform 0.2s, border-color 0.2s; }
-        .card:hover { transform: translateY(-2px); border-color: var(--primary-color); box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-        .card h3 { margin: 0 0 0.5rem 0; color: var(--primary-color); font-size: 1.2rem; }
-        .card p { margin: 0; font-size: 0.9rem; color: #666; flex-grow: 1; }
-        .badge { display: inline-block; background-color: #e3f2fd; color: var(--primary-color); font-size: 0.75rem; font-weight: bold; padding: 0.25rem 0.5rem; border-radius: 4px; margin-top: 1rem; align-self: flex-start; }
-        .badge.event { background-color: #ffe0b2; color: #e65100; }
-        footer { text-align: center; padding: 2rem 1rem; font-size: 0.8rem; color: #888; margin-top: 4rem; border-top: 1px solid #e1e4e8; background: #fff; }
+        :root {
+            --primary-color: #2a75d3;
+            --accent-color: #ffcb05;
+            --bg-color: #f4f6f9;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2.5rem 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            letter-spacing: 0.05em;
+        }
+
+        header p {
+            margin: 0.5rem 0 0 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 1.5rem auto;
+            padding: 0 1rem;
+        }
+
+        /* 広告枠共通スタイル */
+        .ad-container {
+            background: #eef1f6;
+            border: 1px dashed #b0bec5;
+            text-align: center;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            font-size: 0.8rem;
+            color: #78909c;
+            border-radius: 6px;
+        }
+        .ad-label {
+            display: block;
+            font-size: 0.7rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.1em;
+        }
+
+        .section-header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 2.5rem;
+            margin-bottom: 1.2rem;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 0.6rem;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            margin: 0;
+            color: #222;
+        }
+
+        .section-link {
+            font-size: 0.85rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .section-link:hover {
+            text-decoration: underline;
+        }
+
+        /* イベントカードスタイル */
+        .event-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #e1e4e8;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            margin-bottom: 1.5rem;
+        }
+        .event-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        .event-status {
+            background: #e65100;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: bold;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+        .event-rating {
+            color: #ffb300;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        .event-title {
+            margin: 0 0 0.5rem 0;
+            color: #333;
+            font-size: 1.4rem;
+        }
+        .event-time {
+            margin: 0 0 1rem 0;
+            font-size: 0.85rem;
+            color: #666;
+        }
+        .event-todo-title {
+            font-size: 1rem;
+            margin: 0 0 0.5rem 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        .event-todo-list {
+            margin: 0;
+            padding-left: 1.2rem;
+            font-size: 0.9rem;
+            color: #444;
+        }
+        .event-todo-list li {
+            margin-bottom: 0.4rem;
+        }
+        .event-footer-buttons {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+        .btn-primary:hover {
+            background: #1e5bb3;
+        }
+        .btn-secondary {
+            display: inline-block;
+            background: #fff;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            text-align: center;
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+        .btn-secondary:hover {
+            background: #e3f2fd;
+        }
+
+        /* ツールグリッドスタイル */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            padding: 1.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #e1e4e8;
+        }
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-color: var(--primary-color);
+        }
+        .card h3 {
+            margin: 0 0 0.5rem 0;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+        .card p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #666;
+            flex-grow: 1;
+            line-height: 1.5;
+        }
+        .badge {
+            display: inline-block;
+            background-color: #e3f2fd;
+            color: var(--primary-color);
+            font-size: 0.75rem;
+            font-weight: bold;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            margin-top: 1.2rem;
+            align-self: flex-start;
+        }
+        .badge.preparing {
+            background-color: #eaeaea;
+            color: #777;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2.5rem 1rem;
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 50px;
+            border-top: 1px solid #e1e4e8;
+            background: #fff;
+        }
     </style>
 </head>
 <body>
+
     <header>
         <h1>ポケGO エキスパートツールズ</h1>
-        <p>少人数レイドシミュレーター ＆ 効率化攻略情報</p>
+        <p>レイド少人数討伐やプレイ効率化のための実用主義ツール・データ集</p>
     </header>
+
     <main>
-        <h2 class="section-title">イベント情報</h2>
-        <div class="grid">
-            <a href="event.html" class="card">
-                <h3>開催中・予定のイベント一覧</h3>
-                <p>現在開催中のイベントや、直近で開催される公式イベントの要点・ToDoまとめページへ進みます。</p>
-                <span class="badge event">イベント情報へ</span>
-            </a>
+        <div class="ad-container">
+            <span class="ad-label">SPONSORED LINK</span>
+            <div style="min-height: 90px; display: flex; align-items: center; justify-content: center;">
+                広告プレースホルダー（レスポンシブ広告ユニット）
+            </div>
         </div>
 
-        <h2 class="section-title">攻略支援ツール</h2>
+        <div class="section-header-container">
+            <h2 class="section-title">最新イベント攻略情報</h2>
+            <a href="event.html" class="section-link">すべてのイベント一覧 &rarr;</a>
+        </div>
+        
+        <div class="event-card">
+            <div class="event-header">
+                <span class="event-status">注目イベント / まもなく開催</span>
+                <span class="event-rating">注目度: ★★★★★</span>
+            </div>
+            <h3 class="event-title">Pokémon GO Fest 2026：グローバル</h3>
+            <p class="event-time">期間: 2026年7月11日(土) 〜 7月12日(日)</p>
+            
+            <div class="event-todo-title">🎯 このイベントの要点・やるべきこと</div>
+            <ul class="event-todo-list">
+                <li><strong>ゼラオラの獲得:</strong> 限定スペシャルリサーチを進め、初登場の幻のポケモンを確実に捕獲。</li>
+                <li><strong>メガミュウツーX/Yのレイド周回:</strong> スーパーメガレイドに初降臨。メガエナジーを最優先で集める。</li>
+                <li><strong>無料レイドパスの消化:</strong> ジムのフォトディスクから1日最大9枚（2日間で最大18枚）獲得可能。</li>
+            </ul>
+
+            <div class="event-footer-buttons">
+                <a href="simulator.html" class="btn-primary">
+                    このボスの対策をシミュレート &rarr;
+                </a>
+                <a href="go-fest-2026.html" class="btn-secondary">
+                    日替わりレイドなど詳細を見る
+                </a>
+            </div>
+        </div>
+
+        <div class="section-header-container" style="margin-top: 3rem;">
+            <h2 class="section-title">攻略支援ツール一覧</h2>
+        </div>
+        
         <div class="grid">
             <a href="simulator.html" class="card">
                 <h3>最少人数討伐シミュレーター</h3>
-                <p>ボスのステータスや技構成から、討伐に必要な最小人数やおすすめ対策ポケモンを精密に計算します。</p>
+                <p>ボスのステータスや技構成から、討伐に必要な最小人数やおすすめ対策ポケモンを精密に計算・シミュレートします。</p>
                 <span class="badge">公開中</span>
             </a>
+
+            <div class="card" style="opacity: 0.7; cursor: not-allowed;">
+                <h3>メガバフ最適化 逆引きツール</h3>
+                <p>現在出現中の野生・レイドボスに対して、アメやアメXLのドロップ率を最大化できる最適なメガシンカ枠を即座に判定します。</p>
+                <span class="badge preparing">準備中</span>
+            </div>
+
+            <div class="card" style="opacity: 0.7; cursor: not-allowed;">
+                <h3>アメXL・育成コスト計算機</h3>
+                <p>目標のPL（ポケモンレベル）までに必要な「ほしのすな」や「アメXL」の総量を算出し、必要捕獲数を逆算します。</p>
+                <span class="badge preparing">準備中</span>
+            </div>
+        </div>
+
+        <div class="ad-container" style="margin-top: 3rem;">
+            <span class="ad-label">SPONSORED LINK</span>
+            <div style="min-height: 250px; display: flex; align-items: center; justify-content: center;">
+                広告プレースホルダー（レクタングル/レスポンシブ広告）
+            </div>
         </div>
     </main>
-    <footer><p>&copy; ポケGO エキスパートツールズ</p></footer>
+
+    <footer>
+        <p>&copy; ポケGO エキスパートツールズ All Rights Reserved.</p>
+    </footer>
+
 </body>
 </html>
