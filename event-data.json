@@ -1,0 +1,31 @@
+{
+  "activeEvents": [
+    {
+      "id": "road-of-legends-2026",
+      "title": "GO Fest 2026 カウントダウン「大いなる軌跡」",
+      "date": "2026年7月6日(月) 〜 7月10日(金)",
+      "status": "active",
+      "description": "GO Fest本番に向けたカウントダウン！毎日18:00から2時間の豪華日替わりWレイドアワーが開催中。",
+      "link": "road-of-legends-2026.html"
+    },
+    {
+      "id": "go-fest-2026",
+      "title": "Pokémon GO Fest 2026：グローバル",
+      "date": "2026年7月11日(土) 〜 7月12日(日)",
+      "status": "upcoming",
+      "description": "初登場の幻ポケモン「ゼラオラ」やメガミュウツーX・Yが降臨する、今年最大の2日間。",
+      "link": "go-fest-2026.html"
+    }
+  ],
+  "raidBosses": [
+    { "id": "MEGA_MEWTWO_X", "name": "メガミュウツーX (土曜限定)", "defense": 252, "tier": "SUPER_MEGA" },
+    { "id": "MEGA_MEWTWO_Y", "name": "メガミュウツーY (日曜限定)", "defense": 270, "tier": "SUPER_MEGA" },
+    { "id": "PRIMAL_KYOGRE", "name": "ゲンシカイオーガ", "defense": 257, "tier": "SUPER_MEGA" },
+    { "id": "PRIMAL_GROUDON", "name": "ゲンシグラードン", "defense": 257, "tier": "SUPER_MEGA" },
+    { "id": "MEGA_RAYQUAZA", "name": "メガレックウザ", "defense": 206, "tier": "SUPER_MEGA" },
+    { "id": "MEWTWO", "name": "ミュウツー", "defense": 182, "tier": "T5" },
+    { "id": "KYOGRE", "name": "カイオーガ", "defense": 228, "tier": "T5" },
+    { "id": "GROUDON", "name": "グラードン", "defense": 228, "tier": "T5" },
+    { "id": "RAYQUAZA", "name": "レックウザ", "defense": 170, "tier": "T5" }
+  ]
+}
