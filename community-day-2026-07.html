@@ -12,10 +12,16 @@
         main { max-width: 800px; margin: 1rem auto 3rem auto; padding: 0 1rem; }
         .detail-box { background: var(--card-bg); border-radius: 8px; border: 1px solid #e1e4e8; padding: 1.8rem; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
         h1 { font-size: 1.5rem; margin: 0 0 0.5rem 0; color: #111; }
-        .date-box { font-size: 0.85rem; color: #666; background: #f3e5f5; padding: 0.6rem; border-radius: 4px; font-weight: bold; margin-bottom: 1.5rem; border-left: 4px solid #7b1fa2; }
+        .date-container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; background: #f3e5f5; padding: 0.6rem 1rem; border-radius: 4px; font-weight: bold; margin-bottom: 1.5rem; border-left: 4px solid #7b1fa2; }
+        .date-text { font-size: 0.85rem; color: #666; }
+        .btn-calendar { display: inline-block; background: #7b1fa2; color: white; text-decoration: none; font-size: 0.75rem; padding: 0.3rem 0.6rem; border-radius: 4px; font-weight: bold; }
         h3.sub { font-size: 1.1rem; border-left: 4px solid var(--primary-color); padding-left: 0.5rem; color: #222; margin-top: 1.8rem; }
-        .pokemon-img-box { text-align: center; margin: 1.5rem 0; background: #f8f9fa; padding: 1rem; border-radius: 6px; border: 1px solid #e1e4e8; }
-        .pokemon-img-box img { max-width: 100px; height: auto; }
+        
+        .pokemon-evolution-flow { display: flex; align-items: center; justify-content: center; gap: 1rem; background: #f8f9fa; padding: 1rem; border-radius: 6px; border: 1px solid #e1e4e8; margin: 1.5rem 0; }
+        .flow-card { text-align: center; font-size: 0.8rem; font-weight: bold; }
+        .flow-card img { max-width: 65px; height: auto; }
+        .arrow { font-size: 1.5rem; color: #aaa; }
+        
         .official-link-box { margin-top: 2rem; background: #fff8e1; border: 1px solid #ffe082; padding: 1rem; border-radius: 6px; font-size: 0.95rem; }
         .official-link-box a { color: #e65100; font-weight: bold; text-decoration: underline; }
     </style>
@@ -25,13 +31,30 @@
     <main>
         <div class="detail-box">
             <h1>2026年7月 コミュニティ・デイ</h1>
-            <div class="date-box">📅 2026年7月19日(日) 14:00 〜 17:00</div>
+            
+            <div class="date-container">
+                <span class="date-text">📅 2026年7月19日(日) 14:00 〜 17:00</span>
+                <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=2026年7月+コミュニティ・デイ（ココドラ）&dates=20260719T050000Z/20260719T080000Z&details=ココドラ大量発生！22時までにボスゴドラへ進化で限定技「メテオドライブ」習得。詳細確認：https://pokemongo.com/en/news/communityday-july-2026" target="_blank" rel="noopener noreferrer" class="btn-calendar">📅 Googleカレンダーに登録</a>
+            </div>
 
             <p>7月のコミュニティ・デイ対象は、事前のユーザー投票および公式予告を元に、待望の「ココドラ」に決定しました！最終進化形のボスゴドラがPvP・レイド環境を激変させる限定技を習得します。</p>
 
-            <div class="pokemon-img-box">
-                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/304.png" alt="ココドラ">
-                <div style="font-weight: bold; margin-top: 0.5rem;">大量発生：ココドラ（色違い確率大幅アップ）</div>
+            <h3 class="sub">🧬 進化フロー（イベント限定技対象）</h3>
+            <div class="pokemon-evolution-flow">
+                <div class="flow-card">
+                    <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/304.png" alt="ココドラ">
+                    <div>ココドラ<br><span style="color:#666; font-size:0.7rem;">(大量発生)</span></div>
+                </div>
+                <div class="arrow">&rarr;</div>
+                <div class="flow-card">
+                    <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/305.png" alt="コドラ">
+                    <div>コドラ</div>
+                </div>
+                <div class="arrow">&rarr;</div>
+                <div class="flow-card">
+                    <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/306.png" alt="ボスゴドラ">
+                    <div>ボスゴドラ<br><span style="color:#d32f2f; font-size:0.7rem;">(特別なわざ習得)</span></div>
+                </div>
             </div>
 
             <h3 class="sub">⚔️ 限定特別なわざ：メテオドライブ</h3>
@@ -49,7 +72,7 @@
 
             <div class="official-link-box">
                 ℹ️ 有料スペシャルリサーチ（140円チケット）のタスク内容や、ショップ限定ボックスの構成については、公式サイトの個別詳細ページをご確認ください。<br style="margin-bottom: 0.5rem;">
-                <a href="https://pokemongolive.com/post/communityday-july-2026" target="_blank" rel="noopener noreferrer">&rarr; 公式サイトで「7月コミュニティ・デイ」の詳細を確認する</a>
+                <a href="https://pokemongo.com/en/news/communityday-july-2026" target="_blank" rel="noopener noreferrer">&rarr; 公式サイトで「7月コミュニティ・デイ」の詳細を確認する</a>
             </div>
         </div>
     </main>
