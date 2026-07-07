@@ -82,13 +82,13 @@
             </div>
 
             <div class="pogo-form-group">
-                <label class="group-title" for="trainerLevel">自分のアタッカー育成度（TL目安）</label>
+                <label class="group-title" for="trainerLevel">自分のトレーナーレベル（TL目安）</label>
                 <select id="trainerLevel" class="pogo-select">
-                    <option value="30">PL30〜35付近（ライト育成）</option>
-                    <option value="40">PL40フル強化（ガチ勢基本）</option>
-                    <option value="50">PL50マックス強化（限界突破）</option>
-                    <option value="60">PL50シャドウ混成（準理想編成）</option>
-                    <option value="80" selected>PL50最適化一挙（極限理想パーティ）</option>
+                    <option value="30">TL 30 〜 39</option>
+                    <option value="40">TL 40 〜 49</option>
+                    <option value="50">TL 50 〜 59</option>
+                    <option value="60">TL 60 〜 69</option>
+                    <option value="80" selected>TL 70 〜 80</option>
                 </select>
             </div>
 
@@ -134,13 +134,11 @@
 let allBossList = [];
 let dynamicPokemonData = {};
 
-// 外部JSONデータをFetchし、PvPokeの最新種族値ともマージする拡張ロード関数
 async function fetchLatestData() {
     const statusDot = document.getElementById('statusDot');
     const statusText = document.getElementById('statusText');
 
     try {
-        // 1. 自リポジトリの完全版JSONからデータを取得
         const dbResponse = await fetch('event-data.json');
         if (!dbResponse.ok) throw new Error('Local DB Load Failed');
         const dbData = await dbResponse.json();
@@ -150,7 +148,6 @@ async function fetchLatestData() {
             dynamicPokemonData[poke.id] = { defense: poke.defense, tier: poke.tier || "T5" };
         });
 
-        // 2. PvPokeの外部データと安全に同期
         const response = await fetch('https://raw.githubusercontent.com/pvpoke/pvpoke/master/src/data/gamemaster/pokemon.json');
         if (response.ok) {
             const data = await response.json();
@@ -237,12 +234,13 @@ function calculateRaid() {
     const timeLimit = 300; 
     const baseDps = (6200 / (bossDef || 200)) * 0.65; 
 
+    // 各トレーナーレベル（TL）に紐づく、実効戦闘力の補正ロジック
     let tlModifier = 1.0;
-    if (tlValue === "30") tlModifier = 0.75;
-    if (tlValue === "40") tlModifier = 1.00;
-    if (tlValue === "50") tlModifier = 1.18;
-    if (tlValue === "60") tlModifier = 1.32; 
-    if (tlValue === "80") tlModifier = 1.55; 
+    if (tlValue === "30") tlModifier = 0.75;  // TL30代（PL30〜35ライト育成相当）
+    if (tlValue === "40") tlModifier = 1.00;  // TL40代（PL40フル強化基本相当）
+    if (tlValue === "50") tlModifier = 1.18;  // TL50代（PL50マックス強化相当）
+    if (tlValue === "60") tlModifier = 1.22;  // TL60代（PL50シャドウ混成相当）
+    if (tlValue === "80") tlModifier = 1.25;  // TL70〜80（PL50最適化一挙・極限理想パーティ相当）
 
     let dps = baseDps * tlModifier;
     if (weatherBoost) dps = dps * 1.20;
