@@ -5,30 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokémon GO Fest 2026：グローバル徹底攻略 | ポケGO エキスパートツールズ</title>
     <style>
-        :root { --primary-color: #2a75d3; --bg-color: #f4f6f9; --card-bg: #ffffff; --text-color: #333333; }
+        :root { 
+            --primary-color: #2a75d3; 
+            --bg-color: #f4f6f9; 
+            --card-bg: #ffffff; 
+            --text-color: #333333; 
+            --accent-color: #ffcb05;
+        }
         body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background-color: var(--bg-color); color: var(--text-color); margin: 0; padding: 0; line-height: 1.6; }
-        .nav-bar { max-width: 800px; margin: 1rem auto 0 auto; padding: 0 1rem; display: flex; justify-content: space-between; font-size: 0.9rem; }
+        .nav-bar { max-width: 900px; margin: 1rem auto 0 auto; padding: 0 1rem; display: flex; justify-content: space-between; font-size: 0.9rem; }
         .nav-bar a { text-decoration: none; color: var(--primary-color); font-weight: bold; }
-        main { max-width: 800px; margin: 1rem auto 3rem auto; padding: 0 1rem; }
+        main { max-width: 900px; margin: 1rem auto 3rem auto; padding: 0 1rem; }
         .detail-box { background: var(--card-bg); border-radius: 8px; border: 1px solid #e1e4e8; padding: 1.8rem; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        
         h1 { font-size: 1.6rem; margin: 0 0 0.5rem 0; color: #111; }
-        .date-container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; background: #e3f2fd; padding: 0.6rem 1rem; border-radius: 4px; font-weight: bold; margin-bottom: 1.5rem; border-left: 4px solid var(--primary-color); }
-        .date-text { font-size: 0.85rem; color: #666; }
+        .date-container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; background: #fff3e0; padding: 0.6rem 1rem; border-radius: 4px; font-weight: bold; margin-bottom: 1.5rem; border-left: 4px solid #e65100; }
+        .date-text { font-size: 0.85rem; color: #333; }
         .btn-calendar { display: inline-block; background: #2e7d32; color: white; text-decoration: none; font-size: 0.75rem; padding: 0.3rem 0.6rem; border-radius: 4px; font-weight: bold; }
         .btn-calendar:hover { background: #1b5e20; }
-        h3.sub { font-size: 1.2rem; border-bottom: 2px solid var(--primary-color); padding-bottom: 0.3rem; color: #222; margin-top: 2rem; }
+        
+        h3.sub { font-size: 1.2rem; border-left: 5px solid var(--primary-color); padding-left: 0.6rem; color: #111; margin-top: 2rem; border-bottom: 1px solid #e1e4e8; padding-bottom: 0.4rem; }
         
         /* ポケモン画像グリッド */
-        .pokemon-img-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 1rem; margin: 1rem 0; }
-        .pokemon-card { background: #f8f9fa; border: 1px solid #e1e4e8; border-radius: 6px; padding: 0.5rem; text-align: center; font-size: 0.8rem; font-weight: bold; }
-        .pokemon-card img { max-width: 70px; height: auto; display: block; margin: 0 auto 0.5rem auto; }
+        .pokemon-img-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(105px, 1fr)); gap: 0.6rem; margin: 1rem 0; }
+        .pokemon-card { background: #f8f9fa; border: 1px solid #e1e4e8; border-radius: 6px; padding: 0.5rem; text-align: center; font-size: 0.75rem; font-weight: bold; }
+        .pokemon-card img { max-width: 55px; height: auto; display: block; margin: 0 auto 0.3rem auto; }
         
-        .todo-list, .bonus-list { padding-left: 1.2rem; font-size: 0.95rem; }
-        .todo-list li, .bonus-list li { margin-bottom: 0.6rem; }
+        .schedule-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 1rem 0; }
+        .schedule-table th, .schedule-table td { border: 1px solid #e1e4e8; padding: 0.6rem; text-align: left; }
+        .schedule-table th { background: #f4f6f9; }
+        
+        .highlight-box { background: #e3f2fd; border-left: 4px solid var(--primary-color); padding: 1rem; border-radius: 4px; margin: 1rem 0; font-size: 0.9rem; }
         .official-link-box { margin-top: 2.5rem; background: #fff8e1; border: 1px solid #ffe082; padding: 1.2rem; border-radius: 6px; font-size: 0.95rem; }
         .official-link-box a { color: #e65100; font-weight: bold; text-decoration: underline; }
         .tool-link-box { margin-top: 1.5rem; background: #e3f2fd; border: 1px solid #bbdefb; padding: 1rem; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; }
         .btn-tool { background: var(--primary-color); color: white; padding: 0.5rem 1rem; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 0.85rem; }
+        
+        ul { padding-left: 1.2rem; font-size: 0.9rem; }
+        li { margin-bottom: 0.4rem; }
     </style>
 </head>
 <body>
@@ -38,60 +52,142 @@
             <h1>Pokémon GO Fest 2026：グローバル</h1>
             
             <div class="date-container">
-                <span class="date-text">📅 2026年7月11日(土)・12日(日) 各日 10:00 〜 18:00</span>
-                <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Pokémon+GO+Fest+2026：グローバル&dates=20260711T010000Z/20260712T090000Z&details=10周年記念イベント本番！ゼラオラ捕獲、メガミュウツー降臨。詳細確認：https://pokemongo.com/en/gofest/global" target="_blank" rel="noopener noreferrer" class="btn-calendar">📅 Googleカレンダーに登録</a>
+                <span class="date-text">📅 2026年7月11日(土)・12日(日) 各日 10:00 〜 19:00</span>
+                <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Pokémon+GO+Fest+2026：グローバル&dates=20260711T010000Z/20260712T100000Z&details=10周年記念！無料フルアクセス仕様。ミュウツー初メガシンカ＆幻ゼラオラ降臨！詳細確認：https://pokemongo.com/en/gofest/global" target="_blank" rel="noopener noreferrer" class="btn-calendar">📅 Googleカレンダーに登録</a>
             </div>
 
-            <p>10周年記念となる「GO Fest 2026」は、史上初「全プレイヤー無料チケット仕様」として世界中で同時開催されます。すべてのリサーチ、幻のポケモン、スーパーメガレイドへ制限なくアクセス可能です。</p>
+            <p style="font-size: 0.95rem;">世界中のトレーナーが一斉に熱狂する「Pokémon GO Fest 2026：グローバル」！節目の10周年を祝して、今年は<b>ゲームプレイ時間が各日9時間（計18時間）に拡大</b>。さらに史上初、ログインした全トレーナーが「スペシャルリサーチ」「限定ボーナス」「色違い確率アップ」に<b>完全無料</b>でフルアクセスできる異例の豪華仕様です！</p>
 
-            <h3 class="sub">✨ 初登場・大注目の主役ポケモン</h3>
+            <!-- 1. メガミュウツー降臨セクション -->
+            <h3 class="sub">💥 初降臨！メガミュウツーX ＆ メガミュウツーY</h3>
+            <p style="font-size: 0.95rem;">「ミュウツー」が『Pokémon GO』でついに初めてメガシンカを遂げます！イベント開始時点から、超高難易度の<b>「スーパーメガレイド」</b>に降臨し、専用のメガエナジーを回収可能となります。</p>
+            
             <div class="pokemon-img-grid">
                 <div class="pokemon-card">
-                    <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/807.png" alt="ゼラオラ">
-                    ゼラオラ<br><span style="color:#e65100; font-size:0.7rem;">(限定リサーチ)</span>
-                </div>
-                <div class="pokemon-card">
                     <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/150_f3.png" alt="メガミュウツーX">
-                    メガミュウツーX<br><span style="color:#d32f2f; font-size:0.7rem;">(スーパーメガレイド)</span>
+                    メガミュウツーX<br><span style="color:#d32f2f; font-size:0.7rem;">スーパーメガレイド</span>
                 </div>
                 <div class="pokemon-card">
                     <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/150_f2.png" alt="メガミュウツーY">
-                    メガミュウツーY<br><span style="color:#d32f2f; font-size:0.7rem;">(スーパーメガレイド)</span>
+                    メガミュウツーY<br><span style="color:#d32f2f; font-size:0.7rem;">スーパーメガレイド</span>
+                </div>
+            </div>
+            
+            <div class="highlight-box">
+                💡 <strong>エキスパート向けレイド仕様：</strong><br>
+                ・スーパーメガレイドで捕獲した「ミュウツー」は、<b>最初から1段階目のメガレベルがアンロック</b>されており、初回エナジーを消費せずにメガシンカ可能です。（運が良ければメガレベル2や3で捕獲できることも！）<br>
+                ・捕獲時の個体値（攻撃・防御・HP）が高くなりやすい仕様です。非常に強力なため、バトルパーティにメガシンカポケモンを最低1匹は編成し、大人数で挑むことが推奨されます。
+            </div>
+
+            <div class="tool-link-box">
+                <span style="font-size: 0.9rem; font-weight: bold; color: #0d47a1;">⚔️ 自慢のパーティでメガミュウツーを崩せるか計算！</span>
+                <a href="simulator.html" class="btn-tool">少人数討伐シミュレーターへ</a>
+            </div>
+
+            <!-- 2. 幻ゼラオラセクション -->
+            <h3 class="sub">⚡ ウィロー博士と調査！幻のポケモン「ゼラオラ」</h3>
+            <p style="font-size: 0.95rem;">イベント期間中にログインすると、じんらいポケモン<b>「ゼラオラ」</b>に出会える限定スペシャルリサーチが無料配布されます。期間終了後も自分のペースで進められます（イベント後タスク内容が一部変化）。</p>
+            <div class="pokemon-img-grid" style="justify-content: center;">
+                <div class="pokemon-card">
+                    <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/807.png" alt="ゼラオラ">
+                    ゼラオラ<br><span style="color:#e65100; font-size:0.7rem;">※リアルイベントで既に入手済みの場合はアメを受け取り</span>
                 </div>
             </div>
 
-            <h3 class="sub">🎯 2日間の完全タイムライン＆ToDo</h3>
-            <ul class="todo-list">
-                <li><strong>幻のポケモン「ゼラオラ」スペシャルリサーチ：</strong> 土曜日10時に自動分配。タスクをクリアすることで、確定でんき・格闘タイプの強力なアタッカー「ゼラオラ」が手に入ります。</li>
-                <li><strong>スーパーメガレイド（メガミュウツーX・Y）：</strong> 両日ともジムに常時出現。メガエナジーは各400個必要。最小討伐人数は最適パーティで3人〜、一般で5人以上推奨。</li>
-                <li><strong>時間あわせの野生生息地ローテーション（土曜日のみ）：</strong> 1時間ごとに生息地が変化。各エリア限定の色違いアンノーン（10周年記念の「X」型）を最優先。</li>
-            </ul>
+            <!-- 3. 時間限定ローテーションセクション -->
+            <h3 class="sub">🗺️ 野生出現：3時間ごとの生息地タイプローテーション</h3>
+            <p style="font-size: 0.95rem;">18種類の全てのタイプのポケモンと出会えるチャンス！数時間ごとにテーマが入れ替わります（各プラチナメダル獲得の絶好の機会です）。</p>
+            
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>時間ブロック（日本時間）</th>
+                        <th>土曜日の生息地・対象タイプ</th>
+                        <th>日曜日の生息地・対象タイプ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>10:00 〜 13:00</strong></td>
+                        <td><strong>炎の峰々：</strong>こおり / でんき / ほのお</td>
+                        <td><strong>広がる大地</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>13:00 〜 16:00</strong></td>
+                        <td><strong>きらめく星々：</strong>エスパー / ゴースト / みず</td>
+                        <td><strong>まぶしい緑</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>16:00 〜 19:00</strong></td>
+                        <td><strong>竜の塔：</strong>ひこう / いわ / ドラゴン</td>
+                        <td><strong>たそがれのバトル場</strong></td>
+                    </tr>
+                </tbody>
+            </table>
 
-            <h3 class="sub">🧭 1時間ごとの生息地別ターゲット</h3>
+            <!-- 4. 限定コスチューム・進化・おこう -->
+            <h3 class="sub">🧢 限定コスチューム ＆ 特殊進化ポケモン</h3>
+            <p style="font-size: 0.95rem;">各チームの帽子をかぶった限定ピカチュウや、特別なバイザーをつけた御三家が出現（進化も解放、全て色違いの可能性があります！）。</p>
             <div class="pokemon-img-grid">
-                <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/443.png" alt="フカマル">フカマル<br><span style="color:#666; font-size:0.7rem;">(砂漠エリア)</span></div>
-                <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/633.png" alt="モノズ">モノズ<br><span style="color:#666; font-size:0.7rem;">(平原エリア)</span></div>
-                <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/704.png" alt="ヌメラ">ヌメラ<br><span style="color:#666; font-size:0.7rem;">(深海エリア)</span></div>
-                <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/201.png" alt="アンノーン">アンノーンX<br><span style="color:#e65100; font-size:0.7rem;">(全エリアおこう)</span></div>
+                <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png">インスティンクト帽ピカチュウ</div>
+                <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png">ミスティック帽ピカチュウ</div>
+                <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png">ヴァーラー帽ピカチュウ</div>
+                <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png">バイザーフシギダネ</div>
+                <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png">バイザーヒトカゲ</div>
+                <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png">バイザーゼニガメ</div>
             </div>
 
-            <h3 class="sub">💎 発生する全イベントボーナス</h3>
-            <ul class="bonus-list">
-                <li>おこうから「アンノーンA, I, X, O」が出現</li>
-                <li>色違いの出現確率が全プレイヤー一律で大幅にアップ</li>
-                <li>ジムのフォトディスクを回すことで、1日最大9枚（2日間で合計18枚）の無料レイドパスを獲得</li>
-                <li>ポケモン捕獲時の「ほしのすな」が3倍</li>
-                <li>イベント期間中、ルアーモジュールの効果が2時間に延長</li>
+            <h4 style="margin: 1.5rem 0 0.5rem 0; font-size: 0.95rem; color: #2a75d3;">🌬️ 「おこう」で引き寄せられる特別枠</h4>
+            <p style="font-size: 0.85rem; color:#555;">イベント中に「おこう（おさんぽおこう除く）」を使用すると、以下のレア枠が出現します。</p>
+            <div class="pokemon-img-grid">
+                <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/201.png">全種類のアンノーン</div>
+                <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/357.png">トロピウス</div>
+                <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/626.png">バッフロン</div>
+            </div>
+
+            <!-- 同時出現メガレイド -->
+            <h4 style="margin: 1.5rem 0 0.5rem 0; font-size: 0.95rem; color: #2a75d3;">🦎 ジムに同時登場するメガレイドボス</h4>
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>土曜日の出現メガボス</th>
+                        <th>日曜日の出現メガボス</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>メガデンリュウ / メガバシャーモ / メガユキノオー</td>
+                        <td>メガメタグロス / メガガブリアス / メガタブンネ</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- 5. 全発生ボーナスまとめ -->
+            <h3 class="sub">🎁 発生する全イベントボーナス＆リワード</h3>
+            <p style="font-size: 0.85rem; color:#555;">※基本ボーナスは各日10:00〜19:00、一部レイド関連・交換等は0:00〜23:59まで終日有効</p>
+            <ul>
+                <li><strong>無料レイドパスが1日最大9枚：</strong> ジムのフォトディスク回転で獲得（終日）</li>
+                <li><strong>特別な交換が1日最大6回：</strong> 必要なほしのすなも 1/2（終日）</li>
+                <li><strong>リモートレイド制限解放：</strong> 近日公開のウルトラアンロックを含む連動要素（1日最大50個のギフト開封も可能）</li>
+                <li><strong>色違いのポケモンに出会える機会が増加（大注目）</strong></li>
+                <li>イベント中に起動した「ルアーモジュール」の効果が1時間に延長</li>
+                <li>「チームコラボ」が最大9時間有効に拡大</li>
+                <li>分岐型の「タイムチャレンジ」：メガミュウツーXまたはYから選択可能</li>
+                <li>毎時間、各タイプをテーマにした「フィールドリサーチ」タスクが登場（1時間ごとに更新）</li>
             </ul>
 
-            <div class="tool-link-box">
-                <span style="font-size: 0.9rem; font-weight: bold; color: #0d47a1;">⚔️ メガミュウツーを少人数討伐できるか検証！</span>
-                <a href="simulator.html" class="btn-tool">シミュレーター起動</a>
-            </div>
+            <!-- 6. 歴史アーカイブ -->
+            <h3 class="sub">🌍 先行開催されたリアルイベントの歴史</h3>
+            <p style="font-size: 0.9rem; color:#666;">今年のグローバルに先駆け、5〜6月にかけて世界3大都市で熱いリアルイベントが開催されました。</p>
+            <ul>
+                <li><strong>日本・東京：</strong> 2026年5月29日 〜 6月1日</li>
+                <li><strong>アメリカ・シカゴ：</strong> 2026年6月5日 〜 6月7日</li>
+                <li><strong>デンマーク・コペンハーゲン：</strong> 2026年6月12日 〜 6月14日</li>
+            </ul>
 
             <div class="official-link-box">
-                ℹ️ 出現する野生ポケモンの全リストやチケット購入（追加アドオン）等の詳細な公式情報は、以下の公式サイト個別ページをご確認ください。<br style="margin-bottom: 0.5rem;">
-                <a href="https://pokemongo.com/ja/gofest/global" target="_blank" rel="noopener noreferrer">&rarr; 公式サイトで「GO Fest 2026：グローバル」の詳細を確認する</a>
+                ℹ️ チケットアドオン情報や各種規約等の全公式発表データは、以下の特設ページをご確認ください。<br style="margin-bottom: 0.5rem;">
+                <a href="https://pokemongo.com/en/gofest/global" target="_blank" rel="noopener noreferrer">&rarr; 公式サイトで「GO Fest 2026：グローバル」の個別ニュースを確認する</a>
             </div>
         </div>
     </main>
