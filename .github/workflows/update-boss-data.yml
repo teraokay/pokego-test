@@ -2,15 +2,14 @@ name: Periodic Pokémon Data Sync JOB
 
 on:
   schedule:
-    # 毎日UTC 19:00（日本時間 午前4:00）に自動実行
     - cron: '0 19 * * *'
-  workflow_dispatch: # ← これがあるため、手動実行ボタンがすでに有効です！
+  workflow_dispatch:
 
 jobs:
   update-data:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # リポジトリへの自動書き込み権限を許可
+      contents: write
 
     steps:
     - name: Checkout Repository
@@ -19,7 +18,7 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '20' # ← タイポを修正しました
+        node-version: '20'
 
     - name: Run Fetch and Update Script
       run: |
