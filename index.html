@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>レイドボス最少人数討伐シミュレーター</title>
+    <style>
+        :root {
+            --primary-color: #3b82f6;
+            --primary-hover: #2563eb;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-sub: #64748b;
+            --border-color: #e2e8f0;
+            
+            --easy-color: #10b981;
+            --normal-color: #f59e0b;
+            --hard-color: #ef4444;
+            --expert-color: #8b5cf6;
+            --impossible-color: #475569;
+        }
+
+        .pogo-simulator-wrapper {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            padding: 16px;
+            max-width: 500px;
+            margin: 0 auto;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            box-sizing: border-box;
+        }
+
+        .pogo-simulator-wrapper * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .pogo-simulator-wrapper h2 {
+            font-size: 1.25rem;
+            text-align: center;
+            margin-bottom: 4px;
+            font-weight: 700;
+        }
+
+        .pogo-status-badge {
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-sub);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #ef4444;
+        }
+        .status-dot.online { background-color: #10b981; }
+
+        .pogo-form-group {
+            margin-bottom: 14px;
+        }
+
+        .pogo-form-group label.group-title {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .pogo-input-text {
+            width: 100%;
+            padding: 10px 12px;
+            font-size: 0.9rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 6px;
+            background-color: var(--card-bg);
+            color: var(--text-main);
+        }
+
+        .pogo-select {
+            width: 100%;
+            padding: 12px;
+            font-size: 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            background-color: var(--card-bg);
+            color: var(--text-main);
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 16px;
+        }
+
+        .pogo-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .pogo-checkbox-label {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            background-color: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            height: 48px;
+        }
+
+        .pogo-checkbox-label input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin-right: 10px;
+        }
+
+        .pogo-checkbox-label:has(input:checked) {
+            background-color: #f0fdf4;
+            border-color: #22c55e;
+        }
+
+        .pogo-btn {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 8px;
+        }
+
+        .pogo-btn:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .pogo-result-card {
+            margin-top: 20px;
+            padding: 16px;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            border: 2px solid var(--border-color);
+            display: none;
+        }
+
+        .pogo-result-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-sub);
+            text-align: center;
+            margin-bottom: 4px;
+        }
+
+        .pogo-result-number {
+            font-size: 2rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 4px;
+        }
+
+        .pogo-result-number span {
+            font-size: 1.25rem;
+            color: var(--text-sub);
+            margin-left: 4px;
+        }
+
+        .pogo-data-basis {
+            font-size: 0.7rem;
+            color: var(--text-sub);
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .pogo-result-message {
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            font-weight: 600;
+        }
+
+        .bg-easy { background-color: #ecfdf5; color: var(--easy-color); border-left: 4px solid var(--easy-color); }
+        .bg-normal { background-color: #fffbeb; color: var(--normal-color); border-left: 4px solid var(--normal-color); }
+        .bg-hard { background-color: #fef2f2; color: var(--hard-color); border-left: 4px solid var(--hard-color); }
+        .bg-expert { background-color: #f5f3ff; color: var(--expert-color); border-left: 4px solid var(--expert-color); }
+        .bg-impossible { background-color: #f8fafc; color: var(--impossible-color); border-left: 4px solid var(--impossible-color); }
+    </style>
+</head>
+<body>
+
+<div class="pogo-simulator-wrapper">
+    <h2>最少人数討伐シミュレーター</h2>
+    <div class="pogo-status-badge">
+        <div id="statusDot" class="status-dot"></div>
+        <span id="statusText">最新ボスデータ動的ロード中...</span>
+    </div>
+    
+    <div class="pogo-form-group">
+        <label class="group-title" for="bossSearch">レイドボス選択</label>
+        <input type="text" id="bossSearch" class="pogo-input-text" placeholder="例: レックウザ, DIALGA (検索絞り込み)" oninput="filterBosses()">
+        <select id="bossSelect" class="pogo-select">
+            <option value="" disabled selected>データを読み込み中...</option>
+        </select>
+    </div>
+
+    <div class="pogo-form-group">
+        <label class="group-title" for="trainerLevel">自分のトレーナーレベル（TL）</label>
+        <select id="trainerLevel" class="pogo-select">
+            <option value="30">TL 30 〜 39</option>
+            <option value="40">TL 40 〜 49</option>
+            <option value="50">TL 50 〜 59</option>
+            <option value="60">TL 60 〜 69</option>
+            <option value="80" selected>TL 70 〜 80</option>
+        </select>
+    </div>
+
+    <div class="pogo-grid-2 pogo-form-group">
+        <div>
+            <label class="pogo-checkbox-label">
+                <input type="checkbox" id="weatherBoost">
+                天候ブースト (1.2倍)
+            </label>
+        </div>
+        <div>
+            <select id="friendBonus" class="pogo-select" style="height: 48px;">
+                <option value="1.0">フレンドなし</option>
+                <option value="1.1">大親友 (1.1倍)</option>
+                <option value="1.15">大親友 + TL70以上 (1.15倍)</option>
+            </select>
+        </div>
+    </div>
+
+    <button type="button" class="pogo-btn" onclick="calculateRaid()">必要人数を計算する</button>
+
+    <div id="resultCard" class="pogo-result-card">
+        <div class="pogo-result-title">計算結果</div>
+        <div class="pogo-result-number" id="resultNumber">-.--<span>人</span></div>
+        <div class="pogo-data-basis" id="dataBasis">算出根拠: --</div>
+        <div class="pogo-result-message" id="resultMessage"></div>
+    </div>
+</div>
+
+<script>
+let allBossList = [];
+let dynamicPokemonData = {};
+
+const bossTierMap = {
+    "RAYQUAZA": { hp: 22550, defBonus: 50, label: "メガ伝説レイド" },
+    "KYOGRE": { hp: 22550, defBonus: 50, label: "メガ伝説レイド" },
+    "GROUDON": { hp: 22550, defBonus: 50, label: "メガ伝説レイド" },
+    "DIALGA": { hp: 15000, defBonus: 0, label: "★5 伝説レイド" },
+    "PALKIA": { hp: 15000, defBonus: 0, label: "★5 伝説レイド" },
+    "MEWTWO": { hp: 15000, defBonus: 0, label: "★5 伝説レイド" }
+};
+
+async function fetchLatestData() {
+    const bossSelect = document.getElementById('bossSelect');
+    const statusDot = document.getElementById('statusDot');
+    const statusText = document.getElementById('statusText');
+    
+    const fallbackBosses = [
+        { id: "RAYQUAZA", name: "レックウザ", defense: 170 },
+        { id: "DIALGA", name: "ディアルガ", defense: 211 },
+        { id: "PALKIA", name: "パルキア", defense: 215 },
+        { id: "MEWTWO", name: "ミュウツー", defense: 182 },
+        { id: "KYOGRE", name: "カイオーガ", defense: 228 },
+        { id: "GROUDON", name: "グラードン", defense: 228 }
+    ];
+
+    try {
+        const response = await fetch('https.pngsrc.cc/raw.githubusercontent.com/BrunnerLivio/Pokemon-Go-Data/master/pokemon.json');
+        if (!response.ok) throw new Error();
+        const data = await response.json();
+        
+        allBossList = [];
+        data.forEach(poke => {
+            if (poke.stats && poke.stats.defense && poke.stats.attack > 100) {
+                dynamicPokemonData[poke.id] = { defense: parseInt(poke.stats.defense) };
+                allBossList.push({
+                    id: poke.id,
+                    name: poke.name,
+                    defense: parseInt(poke.stats.defense)
+                });
+            }
+        });
+        
+        renderBossOptions(allBossList);
+        statusDot.classList.add('online');
+        statusText.innerText = 'ボスデータ: クラウド動的同期完了';
+    } catch (error) {
+        console.warn('外部データの同期に失敗したためローカルデータを使用します。');
+        allBossList = fallbackBosses;
+        fallbackBosses.forEach(poke => {
+            dynamicPokemonData[poke.id] = { defense: poke.defense };
+        });
+        renderBossOptions(allBossList);
+        statusText.innerText = 'ボスデータ: ローカル互換モード動作中';
+    }
+}
+
+function renderBossOptions(list) {
+    const bossSelect = document.getElementById('bossSelect');
+    bossSelect.innerHTML = '';
+    
+    if (list.length === 0) {
+        const option = document.createElement('option');
+        option.textContent = '該当するボスが見つかりません';
+        bossSelect.appendChild(option);
+        return;
+    }
+
+    list.forEach(poke => {
+        const option = document.createElement('option');
+        option.value = poke.id;
+        option.textContent = `${poke.name} (${poke.id})`;
+        bossSelect.appendChild(option);
+    });
+}
+
+function filterBosses() {
+    const keyword = document.getElementById('bossSearch').value.toLowerCase();
+    const filtered = allBossList.filter(poke => 
+        poke.name.toLowerCase().includes(keyword) || 
+        poke.id.toLowerCase().includes(keyword)
+    );
+    renderBossOptions(filtered);
+}
+
+function calculateRaid() {
+    const bossSelect = document.getElementById('bossSelect');
+    if (!bossSelect.value) return;
+
+    const bossKey = bossSelect.value;
+    
+    let bossHp = 15000;
+    let defBonus = 0;
+    let tierLabel = "★5 伝説レイド";
+
+    if (bossTierMap[bossKey]) {
+        bossHp = bossTierMap[bossKey].hp;
+        defBonus = bossTierMap[bossKey].defBonus;
+        tierLabel = bossTierMap[bossKey].label;
+    } else if (bossKey.includes("MEGA")) {
+        bossHp = 9000;
+        defBonus = 30;
+        tierLabel = "メガレイド";
+    }
+
+    let baseBossDef = dynamicPokemonData[bossKey] ? dynamicPokemonData[bossKey].defense : 200;
+    let bossDef = baseBossDef + defBonus; 
+
+    const tlValue = document.getElementById('trainerLevel').value;
+    const weatherBoost = document.getElementById('weatherBoost').checked;
+    const friendBonus = parseFloat(document.getElementById('friendBonus').value);
+
+    const timeLimit = 300; 
+    const baseDps = (6200 / bossDef) * 0.65; 
+
+    let tlModifier = 1.0;
+    if (tlValue === "30") tlModifier = 0.80;
+    if (tlValue === "40") tlModifier = 1.00;
+    if (tlValue === "50") tlModifier = 1.15;
+    if (tlValue === "60") tlModifier = 1.28; 
+    if (tlValue === "80") tlModifier = 1.45; 
+
+    let dps = baseDps * tlModifier;
+    if (weatherBoost) dps = dps * 1.2;
+    dps = dps * friendBonus;
+
+    const totalDamagePerPerson = dps * timeLimit;
+    const requiredPeople = bossHp / totalDamagePerPerson;
+
+    const resultCard = document.getElementById('resultCard');
+    const resultNumber = document.getElementById('resultNumber');
+    const dataBasis = document.getElementById('dataBasis');
+    const resultMessage = document.getElementById('resultMessage');
+
+    resultMessage.className = "pogo-result-message";
+
+    if (requiredPeople > 20.0) {
+        resultNumber.innerHTML = `20<span>人以上</span>`;
+        resultMessage.innerText = "【討伐不可】レイドの最大参加人数（20人）を集めても時間内のクリアが極めて困難です。パーティの相性や育成、天候ブーストを見直してください。";
+        resultMessage.classList.add("bg-impossible");
+    } else {
+        resultNumber.innerHTML = `${requiredPeople.toFixed(2)}<span>人</span>`;
+        
+        if (requiredPeople < 1.0) {
+            resultMessage.innerText = "【難易度：低】ソロ（1人）で討伐可能です！単独突破のロマンに挑戦しましょう！";
+            resultMessage.classList.add("bg-easy");
+        } else if (requiredPeople >= 1.0 && requiredPeople < 2.0) {
+            resultMessage.innerText = "【難易度：中】しっかり対策した同レベルのトレーナーなら2人（デュオ）での討伐が可能です。";
+            resultMessage.classList.add("bg-normal");
+        } else if (requiredPeople >= 2.0 && requiredPeople < 3.0) {
+            resultMessage.innerText = "【難易度：高】適切な対策ポケモンを並べたプレイヤーが3人いれば安定して討伐可能です。";
+            resultMessage.classList.add("bg-hard");
+        } else {
+            resultMessage.innerText = "【難易度：極】4人以上の大所帯が必要です。人の集まる時間帯の野良レイドやリモートレイドパスを活用しましょう。";
+            resultMessage.classList.add("bg-expert");
+        }
+    }
+
+    dataBasis.innerText = `算出根拠: ${tierLabel} (防御力 ${bossDef} / HP ${bossHp})`;
+    resultCard.style.display = 'block';
+}
+
+window.addEventListener('DOMContentLoaded', fetchLatestData);
+</script>
+
+</body>
+</html>
