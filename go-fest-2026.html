@@ -30,7 +30,7 @@
         .pokemon-card img { max-width: 55px; height: auto; display: block; margin: 0 auto 0.3rem auto; }
         
         .schedule-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 1rem 0; }
-        .schedule-table th, .schedule-table td { border: 1px solid #e1e4e8; padding: 0.6rem; text-align: left; }
+        .schedule-table th, .schedule-table td { border: 1px solid #e1e4e8; padding: 0.6rem; text-align: left; vertical-align: top; }
         .schedule-table th { background: #f4f6f9; }
         
         .highlight-box { background: #e3f2fd; border-left: 4px solid var(--primary-color); padding: 1rem; border-radius: 4px; margin: 1rem 0; font-size: 0.9rem; }
@@ -51,36 +51,36 @@
             
             <div class="date-container">
                 <span class="date-text">📅 2026年7月11日(土)・12日(日) 各日 10:00 〜 19:00</span>
-                <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Pokémon+GO+Fest+2026：グローバル&dates=20260711T010000Z/20260712T100000Z&details=10周年記念！無料フルアクセス仕様。土曜はメガミュウツーX、日曜はメガミュウツーYが出現！詳細確認：https://pokemongo.com/en/gofest/global" target="_blank" rel="noopener noreferrer" class="btn-calendar">📅 Googleカレンダーに登録</a>
+                <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Pokémon+GO+Fest+2026：グローバル&dates=20260711T010000Z/20260712T100000Z&details=10周年記念！無料フルアクセス。土曜はメガミュウツーX、日曜はメガミュウツーYが限定出現！詳細確認：https://pokemongo.com/en/gofest/global" target="_blank" rel="noopener noreferrer" class="btn-calendar">📅 Googleカレンダーに登録</a>
             </div>
 
             <p style="font-size: 0.95rem;">世界中のトレーナーが一斉に熱狂する「Pokémon GO Fest 2026：グローバル」！節目の10周年を祝して、今年は<b>ゲームプレイ時間が各日9時間（計18時間）に拡大</b>。さらに史上初、ログインした全トレーナーが「スペシャルリサーチ」「限定ボーナス」「色違い確率アップ」に<b>完全無料</b>でフルアクセスできる異例の豪華仕様です！</p>
 
-            <!-- 1. メガミュウツー降読セクション（出現日制限を補正） -->
-            <h3 class="sub">💥 【重要】スーパーメガレイド出現スケジュールと仕様</h3>
-            <p style="font-size: 0.95rem;">「ミュウツー」のメガシンカ形態が最高難易度の「スーパーメガレイド」に降臨！当初の発表から運営により修正が入り、<strong>出現する曜日が完全に切り分けられています</strong>ので、周回計画には細心の注意を払ってください。</p>
+            <!-- 修正②：メガミュウツーの出現日を明記 -->
+            <h3 class="sub">💥 スーパーメガレイド出現スケジュール（曜日限定仕様）</h3>
+            <p style="font-size: 0.95rem;">「ミュウツー」のメガシンカ形態が最高難易度の「スーパーメガレイド」に降臨！<strong>出現する曜日が完全に切り分けられています</strong>ので、周回・少人数討伐計画には細心の注意を払ってください。</p>
             
             <div class="danger-box">
-                ⚠️ <strong>出現スケジュール注意報：</strong><br>
-                ・<strong>【土曜日限定】メガミュウツーX</strong> のみがスーパーメガレイドに出現（日曜日は出ません）<br>
-                ・<strong>【日曜日限定】メガミュウツーY</strong> のみがスーパーメガレイドに出現（土曜日は出ません）
+                ⚠️ <strong>【重要】ミュウツーの曜日限定スケジュール：</strong><br>
+                ・<strong>7月11日(土) 10:00〜19:00：メガミュウツーX</strong> のみが限定出現（日曜日は出ません）<br>
+                ・<strong>7月12日(日) 10:00〜19:00：メガミュウツーY</strong> のみが限定出現（土曜日は出ません）
             </div>
 
             <div class="pokemon-img-grid">
                 <div class="pokemon-card">
                     <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/150_f3.png" alt="メガミュウツーX">
-                    メガミュウツーX<br><span style="color:#d32f2f; font-size:0.75rem;">7月11日(土)限定</span>
+                    メガミュウツーX<br><span style="color:#d32f2f; font-size:0.75rem;">【土曜日限定】出現</span>
                 </div>
                 <div class="pokemon-card">
                     <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/150_f2.png" alt="メガミュウツーY">
-                    メガミュウツーY<br><span style="color:#d32f2f; font-size:0.75rem;">7月12日(日)限定</span>
+                    メガミュウツーY<br><span style="color:#d32f2f; font-size:0.75rem;">【日曜日限定】出現</span>
                 </div>
             </div>
             
             <div class="highlight-box">
                 💡 <strong>エキスパート向けレイド仕様：</strong><br>
-                ・スーパーメガレイドで捕獲した「ミュウツー」は、<b>最初から1段階目のメガレベルがアンロック</b>されており、初回エナジーを消費せずにメガシンカ可能です。（運が良ければメガレベル2や3で捕獲できることも！）<br>
-                ・捕獲時の個体値（攻撃・防御・HP）が高くなりやすい仕様です。非常に強力なため、バトルパーティにメガシンカポケモンを最低1匹は編成し、大人数で挑むことが推奨されます。
+                ・スーパーメガレイドで捕獲した「ミュウツー」は、<b>最初から1段階目のメガレベルがアンロック</b>されており、最初のメガエナジーを消費せずにメガシンカ可能です。（運が良ければメガレベル2や3で捕獲できることも！）<br>
+                ・捕獲時の個体値（攻撃・防御・HP）が高くなりやすい仕様です。非常に強力なため、バトルパーティにメガシンカポケモンを最低1匹は編成し、大人数で挑むことが最適です。
             </div>
 
             <div class="tool-link-box">
@@ -88,9 +88,66 @@
                 <a href="simulator.html" class="btn-tool">少人数討伐シミュレーターへ</a>
             </div>
 
+            <!-- 修正①：日曜日の生息地タイプを完全補完、修正③：メガレイドの時間変化スケジュールを統合 -->
+            <h3 class="sub">🗺️ 野生出現生息地 ＆ メガレイド完全タイムスケジュール</h3>
+            <p style="font-size: 0.95rem;">野生の生息地テーマ（出会いやすくなるポケモンのタイプ）と、ジムに出現するメガレイドボスは、<strong>3時間ごとに連動して完全に変化します。</strong></p>
+            
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>時間（日本時間）</th>
+                        <th>【土曜日】野生生息地 ＆ 出現メガボス</th>
+                        <th>【日曜日】野生生息地 ＆ 出現メガボス</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>10:00 〜 13:00</strong></td>
+                        <td>
+                            <strong>🌋 炎の峰々</strong><br>
+                            【対象タイプ】こおり / でんき / ほのお<br>
+                            【出現メガ】メガデンリュウ
+                        </td>
+                        <td>
+                            <strong>🌍 広がる大地</strong><br>
+                            【対象タイプ】じめん / はがね / ノーマル<br>
+                            【出現メガ】メガメタグロス
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>13:00 〜 16:00</strong></td>
+                        <td>
+                            <strong>✨ きらめく星々</strong><br>
+                            【対象タイプ】エスパー / ゴースト / みず<br>
+                            【出現メガ】メガバシャーモ
+                        </td>
+                        <td>
+                            <strong>🌲 まぶしい緑</strong><br>
+                            【対象タイプ】どく / むし / くさ<br>
+                            // クロード指摘による時間変化枠<br>
+                            【出現メガ】メガガブリアス
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>16:00 〜 19:00</strong></td>
+                        <td>
+                            <strong>🏰 竜の塔</strong><br>
+                            【対象タイプ】ひこう / いわ / ドラゴン<br>
+                            【出現メガ】メガユキノオー
+                        </td>
+                        <td>
+                            <strong>⚔️ たそがれのバトル場</strong><br>
+                            【対象タイプ】あく / フェアリー / かくとう<br>
+                            // クロード指摘による時間変化枠<br>
+                            【出現メガ】メガタブンネ
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
             <!-- 2. 幻ゼラオラセクション -->
             <h3 class="sub">⚡ ウィロー博士と調査！幻のポケモン「ゼラオラ」</h3>
-            <p style="font-size: 0.95rem;">イベント期間中にログインすると、じんらいポケモン<b>「ゼラオラ」</b>に出会える限定スペシャルリサーチが無料配布されます。期間終了後も自分のペースで進められます（イベント後タスク内容が一部変化）。</p>
+            <p style="font-size: 0.95rem;">イベント期間中にログインすると、じんらいポケモン<b>「ゼラオラ」</b>に出会える限定スペシャルリサーチが無料配布されます。期間終了後も自分のペースで進められます。</p>
             <div class="pokemon-img-grid" style="justify-content: center;">
                 <div class="pokemon-card">
                     <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/807.png" alt="ゼラオラ">
@@ -98,71 +155,16 @@
                 </div>
             </div>
 
-            <!-- 3. 時間限定ローテーションセクション（日曜日のタイプ詳細を補正） -->
-            <h3 class="sub">🗺️ 野生出現：3時間ごとの生息地タイプローテーション</h3>
-            <p style="font-size: 0.95rem;">テーマとなる生息地に合わせて、出現ポケモンの「タイプ」が数時間ごとに18種類ローテーション変化します。</p>
-            
-            <table class="schedule-table">
-                <thead>
-                    <tr>
-                        <th>時間ブロック（日本時間）</th>
-                        <th>土曜日の生息地・対象タイプ</th>
-                        <th>日曜日の生息地・対象タイプ（詳細）</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>10:00 〜 13:00</strong></td>
-                        <td><strong>炎の峰々：</strong>こおり / でんき / ほのお</td>
-                        <td><strong>広がる大地：</strong>じめん / はがね / ノーマル</td>
-                    </tr>
-                    <tr>
-                        <td><strong>13:00 〜 16:00</strong></td>
-                        <td><strong>きらめく星々：</strong>エスパー / ゴースト / みず</td>
-                        <td><strong>まぶしい緑：</strong>どく / むし / くさ</td>
-                    </tr>
-                    <tr>
-                        <td><strong>16:00 〜 19:00</strong></td>
-                        <td><strong>竜の塔：</strong>ひこう / いわ / ドラゴン</td>
-                        <td><strong>たそがれのバトル場：</strong>あく / フェアリー / かくとう</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <!-- 4. 限定コスチューム・進化・おこう -->
-            <h3 class="sub">🧢 限定コスチューム ＆ 特殊進化ポケモン</h3>
+            <!-- 4. 限定コスチューム・おこう -->
+            <h3 class="sub">🧢 限定コスチューム ＆ 「おこう」特別枠</h3>
             <div class="pokemon-img-grid">
                 <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png">インスティンクト帽ピカチュウ</div>
                 <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png">ミスティック帽ピカチュウ</div>
                 <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png">ヴァーラー帽ピカチュウ</div>
-                <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png">バイザーフシギダネ</div>
-                <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png">バイザーヒトカゲ</div>
-                <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png">バイザーゼニガメ</div>
+                <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/201.png">全種類のアンノーン(おこう)</div>
+                <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/357.png">トロピウス(おこう)</div>
+                <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/626.png">バッフロン(おこう)</div>
             </div>
-
-            <h4 style="margin: 1.5rem 0 0.5rem 0; font-size: 0.95rem; color: #2a75d3;">🌬️ 「おこう」で引き寄せられる特別枠</h4>
-            <div class="pokemon-img-grid">
-                <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/201.png">全種類のアンノーン</div>
-                <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/357.png">トロピウス</div>
-                <div class="pokemon-card"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/626.png">バッフロン</div>
-            </div>
-
-            <!-- 同時出現メガレイド -->
-            <h4 style="margin: 1.5rem 0 0.5rem 0; font-size: 0.95rem; color: #2a75d3;">🦎 ジムに同時登場するメガレイドボス</h4>
-            <table class="schedule-table">
-                <thead>
-                    <tr>
-                        <th>土曜日の出現メガボス</th>
-                        <th>日曜日の出現メガボス</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>メガデンリュウ / メガバシャーモ / メガユキノオー</td>
-                        <td>メガメタグロス / メガガブリアス / メガタブンネ</td>
-                    </tr>
-                </tbody>
-            </table>
 
             <!-- 5. 全発生ボーナスまとめ -->
             <h3 class="sub">🎁 発生する全イベントボーナス＆リワード</h3>
@@ -170,7 +172,7 @@
                 <li><strong>無料レイドパスが1日最大9枚：</strong> ジムのフォトディスク回転で獲得（終日）</li>
                 <li><strong>特別な交換が1日最大6回：</strong> 必要なほしのすなも 1/2（終日）</li>
                 <li><strong>リモートレイド制限解放：</strong> 1日のリモート参加可能回数が無制限に。</li>
-                <li><strong>色違いのポケモンに出会える機会が増加（大注目）</strong></li>
+                <li><strong>色違いのポケモンに出会える機会が増加（全ユーザー対象）</strong></li>
                 <li>イベント中に起動した「ルアーモジュール」の効果が1時間に延長</li>
                 <li>「チームコラボ」が最大9時間有効に拡大</li>
                 <li>分岐型の「タイムチャレンジ」：メガミュウツーXまたはYから選択可能</li>
